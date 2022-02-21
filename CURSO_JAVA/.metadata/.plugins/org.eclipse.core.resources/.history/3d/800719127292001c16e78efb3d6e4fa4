@@ -1,0 +1,26 @@
+package ExerciciosCap2;
+/*
+ * Autor: Alexandre Wilian Nikitin
+ * Data: 20/02/2022
+ */
+public class Exercicio2 {
+
+	public static void main(String[] args) {
+		//Cria as variaveis
+		double Nota1 = 0, Nota2 = 0, Nota3 = 0, Nota4 = 0, Media = 0;
+		int divisor = 4
+		
+		//insere os valores nas variaveis
+		Nota1 = 7;
+		Nota2 = 8;
+		Nota3 = 9;
+		Nota4 = 5;
+		
+		//calcula a média das notas
+		Media = (Nota1 + Nota2 + Nota3 + Nota4) / divisor;
+		
+		//Retorna a média do aluno
+		System.out.printf("A nota média do aluno foi de: %f", Media);
+	}
+
+}
