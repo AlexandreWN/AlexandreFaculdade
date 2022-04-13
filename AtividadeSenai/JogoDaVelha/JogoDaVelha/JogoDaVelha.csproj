@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EscolherCor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EscolherCor.Designer.cs">
+      <DependentUpon>EscolherCor.cs</DependentUpon>
+    </Compile>
     <Compile Include="EscolherModo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EscolherCor.resx">
+      <DependentUpon>EscolherCor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EscolherModo.resx">
       <DependentUpon>EscolherModo.cs</DependentUpon>
     </EmbeddedResource>

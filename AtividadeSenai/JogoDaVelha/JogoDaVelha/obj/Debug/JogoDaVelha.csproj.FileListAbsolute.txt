@@ -1,0 +1,14 @@
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\bin\Debug\JogoDaVelha.exe.config
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\bin\Debug\JogoDaVelha.exe
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\bin\Debug\JogoDaVelha.pdb
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.csproj.AssemblyReference.cache
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.csproj.SuggestedBindingRedirects.cache
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.EscolherModo.resources
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.Form1.resources
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.JogoSimples.resources
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.Properties.Resources.resources
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.csproj.GenerateResource.cache
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.exe
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.pdb
+C:\Users\Aluno\Desktop\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\Debug\JogoDaVelha.EscolherCor.resources
