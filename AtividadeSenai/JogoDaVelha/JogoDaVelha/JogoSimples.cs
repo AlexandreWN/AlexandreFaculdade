@@ -15,6 +15,7 @@ namespace JogoDaVelha
         int vez = 0;
         int r1 = 0, g1 = 0, b1 = 0;
         int r2 = 222, g2 = 222, b2 = 222;
+        int contador = 0;
         public JogoSimples()
         {
             InitializeComponent();
@@ -42,8 +43,12 @@ namespace JogoDaVelha
 
         private void pictureBox6_Paint(object sender, PaintEventArgs e)
         {
-        }
 
+            Pen pen = new Pen(Color.Black, 2);
+
+            Graphics g = e.Graphics;
+            g.DrawLine(pen, 100, pictureBox6.Width / 5 + 100, pictureBox6.Width - 100, pictureBox6.Width / 5 + 100);
+        }
         private void JogoSimples_MouseClick(object sender, MouseEventArgs e)
         {
             if(vez == 0)
@@ -72,6 +77,45 @@ namespace JogoDaVelha
 
                 pb.Image = bitmap;
                 vez = 0;
+            }
+            
+            if(contador != 0)
+            {
+                if (ComparaImagem(pictureBox1.Image, pictureBox6.Image, pictureBox9.Image))
+                {
+                    MessageBox.Show("As imagens são iguais.");
+                }
+                else
+                {
+                    MessageBox.Show("As imagens são diferentes.");
+                }
+            }
+            contador++;
+            
+        }
+        
+        private bool ComparaPixels(Bitmap imagem1, Bitmap imagem2, Bitmap imagem3)
+        {
+            for (int x = 0; x < imagem1.Width; x++)
+            {
+                for (int y = 0; y < imagem1.Height; y++)
+                {
+                    if (imagem1.GetPixel(x, y) != imagem2.GetPixel(x, y) || imagem1.GetPixel(x, y) != imagem3.GetPixel(x, y))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+        private bool ComparaImagem(Image imagem1, Image imagem2, Image imagem3)
+        {
+            using (var bitmap1 = new Bitmap(imagem1))
+            using (var bitmap2 = new Bitmap(imagem2))
+            using (var bitmap3 = new Bitmap(imagem3))
+            {
+                return ComparaPixels(bitmap1, bitmap2, bitmap3);
             }
         }
     }
