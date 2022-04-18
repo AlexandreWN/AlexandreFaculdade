@@ -16,6 +16,9 @@ namespace JogoDaVelha
         int r1 = 0, g1 = 0, b1 = 0;
         int r2 = 222, g2 = 222, b2 = 222;
         int contador = 0;
+        string a = "";
+        List<string> jog1 = new List<string>();
+        List<string> jog2 = new List<string>();
         public JogoSimples()
         {
             InitializeComponent();
@@ -49,21 +52,35 @@ namespace JogoDaVelha
             Graphics g = e.Graphics;
             g.DrawLine(pen, 100, pictureBox6.Width / 5 + 100, pictureBox6.Width - 100, pictureBox6.Width / 5 + 100);
         }
+  
         private void JogoSimples_MouseClick(object sender, MouseEventArgs e)
         {
             if(vez == 0)
             {
+                
                 Pen pen = new Pen(Color.FromArgb(r1,g1,b1),7);
                 var pb = sender as PictureBox;
 
                 Bitmap bitmap = new Bitmap(pb.Width, pb.Height);
                 Graphics g = Graphics.FromImage(bitmap);
+                if (jog2.Contains(pb.Name[pb.Name.Length -1].ToString()) == false && jog1.Contains(pb.Name[pb.Name.Length -1].ToString()) == false)
+                {
+                    g.DrawLine(pen, pb.Width - 20, pb.Height -20, pb.Width -80, pb.Height -80);
+                    g.DrawLine(pen, pb.Width - 20, pb.Height - 80, pb.Width - 80, pb.Height - 20);
 
-                g.DrawLine(pen,pb.Width - 20, pb.Height -20, pb.Width -80, pb.Height -80);
-                g.DrawLine(pen, pb.Width - 20, pb.Height - 80, pb.Width - 80, pb.Height - 20);
+                    pb.Image = bitmap;
+                    jog1.Add(pb.Name[pb.Name.Length -1].ToString());
+                    vez = 1;
 
-                pb.Image = bitmap;
-                vez = 1;
+                    if(jog1.Contains("1") && jog1.Contains("2") && jog1.Contains("3") || jog1.Contains("4") && jog1.Contains("5") && jog1.Contains("6") || jog1.Contains("7") && jog1.Contains("8") && jog1.Contains("9") || jog1.Contains("1") && jog1.Contains("4") && jog1.Contains("7") || jog1.Contains("2") && jog1.Contains("5") && jog1.Contains("8") || jog1.Contains("3") && jog1.Contains("6") && jog1.Contains("9") || jog1.Contains("1") && jog1.Contains("5") && jog1.Contains("9") || jog1.Contains("3") && jog1.Contains("5") && jog1.Contains("7"))
+                    {
+                        MessageBox.Show("jogaqdor 1 venceu");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("campo ja selecionado");
+                }
             }
             else
             {
@@ -72,51 +89,23 @@ namespace JogoDaVelha
 
                 Bitmap bitmap = new Bitmap(pb.Width, pb.Height);
                 Graphics g = Graphics.FromImage(bitmap);
-
-                g.DrawEllipse(pen, pb.Width / 2 - 70 / 2, pb.Height / 2 - 70 / 2, 70, 70);
-
-                pb.Image = bitmap;
-                vez = 0;
-            }
-            
-            if(contador != 0)
-            {
-                if (ComparaImagem(pictureBox1.Image, pictureBox6.Image, pictureBox9.Image))
+                if (jog2.Contains(pb.Name[pb.Name.Length -1].ToString()) == false && jog1.Contains(pb.Name[pb.Name.Length -1].ToString()) == false)
                 {
-                    MessageBox.Show("As imagens são iguais.");
+                    g.DrawEllipse(pen, pb.Width / 2 - 70 / 2, pb.Height / 2 - 70 / 2, 70, 70);
+                    pb.Image = bitmap;
+                    jog2.Add(pb.Name[pb.Name.Length -1].ToString());
+                    vez = 0;
+                    if (jog2.Contains("1") && jog2.Contains("2") && jog2.Contains("3") || jog2.Contains("4") && jog2.Contains("5") && jog2.Contains("6") || jog2.Contains("7") && jog2.Contains("8") && jog2.Contains("9") || jog2.Contains("1") && jog2.Contains("4") && jog2.Contains("7") || jog2.Contains("2") && jog2.Contains("5") && jog2.Contains("8") || jog2.Contains("3") && jog2.Contains("6") && jog2.Contains("9") || jog2.Contains("1") && jog2.Contains("5") && jog2.Contains("9") || jog2.Contains("3") && jog2.Contains("5") && jog2.Contains("7"))
+                    {
+                        MessageBox.Show("jogaqdor 2 venceu");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("As imagens são diferentes.");
+                    MessageBox.Show("campo ja selecionado");
                 }
             }
-            contador++;
             
-        }
-        
-        private bool ComparaPixels(Bitmap imagem1, Bitmap imagem2, Bitmap imagem3)
-        {
-            for (int x = 0; x < imagem1.Width; x++)
-            {
-                for (int y = 0; y < imagem1.Height; y++)
-                {
-                    if (imagem1.GetPixel(x, y) != imagem2.GetPixel(x, y) || imagem1.GetPixel(x, y) != imagem3.GetPixel(x, y))
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
-        }
-        private bool ComparaImagem(Image imagem1, Image imagem2, Image imagem3)
-        {
-            using (var bitmap1 = new Bitmap(imagem1))
-            using (var bitmap2 = new Bitmap(imagem2))
-            using (var bitmap3 = new Bitmap(imagem3))
-            {
-                return ComparaPixels(bitmap1, bitmap2, bitmap3);
-            }
         }
     }
 }

@@ -79,14 +79,14 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(135, 128);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 99);
+            this.pictureBox1.Size = new System.Drawing.Size(95, 95);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.JogoSimples_MouseClick);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(135, 233);
+            this.pictureBox2.Location = new System.Drawing.Point(236, 128);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(95, 95);
             this.pictureBox2.TabIndex = 4;
@@ -95,18 +95,18 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(236, 334);
+            this.pictureBox3.Location = new System.Drawing.Point(337, 128);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(95, 99);
+            this.pictureBox3.Size = new System.Drawing.Size(95, 95);
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.JogoSimples_MouseClick);
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(135, 334);
+            this.pictureBox4.Location = new System.Drawing.Point(135, 233);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(95, 99);
+            this.pictureBox4.Size = new System.Drawing.Size(95, 95);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.JogoSimples_MouseClick);
@@ -122,9 +122,9 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(236, 128);
+            this.pictureBox6.Location = new System.Drawing.Point(337, 233);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(95, 99);
+            this.pictureBox6.Size = new System.Drawing.Size(95, 95);
             this.pictureBox6.TabIndex = 6;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox6_Paint);
@@ -132,16 +132,16 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(337, 128);
+            this.pictureBox9.Location = new System.Drawing.Point(337, 338);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(95, 99);
+            this.pictureBox9.Size = new System.Drawing.Size(95, 95);
             this.pictureBox9.TabIndex = 9;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.JogoSimples_MouseClick);
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(337, 233);
+            this.pictureBox8.Location = new System.Drawing.Point(236, 338);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(95, 95);
             this.pictureBox8.TabIndex = 10;
@@ -150,9 +150,9 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(337, 333);
+            this.pictureBox7.Location = new System.Drawing.Point(135, 338);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(95, 99);
+            this.pictureBox7.Size = new System.Drawing.Size(95, 95);
             this.pictureBox7.TabIndex = 11;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.JogoSimples_MouseClick);
