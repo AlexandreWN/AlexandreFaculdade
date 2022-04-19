@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JogoDaVelhaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FilaEspera">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dataFila" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="jogo_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jogo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Partida">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dataPartida" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="statusPartida" Type="bit" />
+          <Property Name="fila_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="score" Type="int" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="jogo_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tabuleiro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="casa" Type="int" />
+          <Property Name="jogada" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="partida_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="login" Type="varchar" MaxLength="50" />
+          <Property Name="senha" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__FilaEsper__jogo___1DE57479">
+          <End Role="Jogo" Type="Self.Jogo" Multiplicity="1" />
+          <End Role="FilaEspera" Type="Self.FilaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FilaEspera">
+              <PropertyRef Name="jogo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FilaEsper__user___1CF15040">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="FilaEspera" Type="Self.FilaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FilaEspera">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Partida__fila_id__20C1E124">
+          <End Role="FilaEspera" Type="Self.FilaEspera" Multiplicity="1" />
+          <End Role="Partida" Type="Self.Partida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FilaEspera">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Partida">
+              <PropertyRef Name="fila_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Score__jogo_id__1A14E395">
+          <End Role="Jogo" Type="Self.Jogo" Multiplicity="1" />
+          <End Role="Score" Type="Self.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="jogo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Score__user_id__1920BF5C">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Score" Type="Self.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tabuleiro__parti__24927208">
+          <End Role="Partida" Type="Self.Partida" Multiplicity="1" />
+          <End Role="Tabuleiro" Type="Self.Tabuleiro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tabuleiro">
+              <PropertyRef Name="partida_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JogoDaVelhaModelStoreContainer">
+          <EntitySet Name="FilaEspera" EntityType="Self.FilaEspera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jogo" EntityType="Self.Jogo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partida" EntityType="Self.Partida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Score" EntityType="Self.Score" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tabuleiro" EntityType="Self.Tabuleiro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FilaEsper__jogo___1DE57479" Association="Self.FK__FilaEsper__jogo___1DE57479">
+            <End Role="Jogo" EntitySet="Jogo" />
+            <End Role="FilaEspera" EntitySet="FilaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FilaEsper__user___1CF15040" Association="Self.FK__FilaEsper__user___1CF15040">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="FilaEspera" EntitySet="FilaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Partida__fila_id__20C1E124" Association="Self.FK__Partida__fila_id__20C1E124">
+            <End Role="FilaEspera" EntitySet="FilaEspera" />
+            <End Role="Partida" EntitySet="Partida" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Score__jogo_id__1A14E395" Association="Self.FK__Score__jogo_id__1A14E395">
+            <End Role="Jogo" EntitySet="Jogo" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Score__user_id__1920BF5C" Association="Self.FK__Score__user_id__1920BF5C">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tabuleiro__parti__24927208" Association="Self.FK__Tabuleiro__parti__24927208">
+            <End Role="Partida" EntitySet="Partida" />
+            <End Role="Tabuleiro" EntitySet="Tabuleiro" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JogoDaVelhaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FilaEspera">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dataFila" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="jogo_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Jogo" Relationship="Self.FK__FilaEsper__jogo___1DE57479" FromRole="FilaEspera" ToRole="Jogo" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__FilaEsper__user___1CF15040" FromRole="FilaEspera" ToRole="Usuario" />
+          <NavigationProperty Name="Partida" Relationship="Self.FK__Partida__fila_id__20C1E124" FromRole="FilaEspera" ToRole="Partida" />
+        </EntityType>
+        <EntityType Name="Jogo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FilaEspera" Relationship="Self.FK__FilaEsper__jogo___1DE57479" FromRole="Jogo" ToRole="FilaEspera" />
+          <NavigationProperty Name="Score" Relationship="Self.FK__Score__jogo_id__1A14E395" FromRole="Jogo" ToRole="Score" />
+        </EntityType>
+        <EntityType Name="Partida">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dataPartida" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="statusPartida" Type="Boolean" />
+          <Property Name="fila_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FilaEspera" Relationship="Self.FK__Partida__fila_id__20C1E124" FromRole="Partida" ToRole="FilaEspera" />
+          <NavigationProperty Name="Tabuleiro" Relationship="Self.FK__Tabuleiro__parti__24927208" FromRole="Partida" ToRole="Tabuleiro" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="score1" Type="Int32" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="jogo_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Jogo" Relationship="Self.FK__Score__jogo_id__1A14E395" FromRole="Score" ToRole="Jogo" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Score__user_id__1920BF5C" FromRole="Score" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Tabuleiro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="casa" Type="Int32" />
+          <Property Name="jogada" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="partida_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Partida" Relationship="Self.FK__Tabuleiro__parti__24927208" FromRole="Tabuleiro" ToRole="Partida" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="senha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FilaEspera" Relationship="Self.FK__FilaEsper__user___1CF15040" FromRole="Usuario" ToRole="FilaEspera" />
+          <NavigationProperty Name="Score" Relationship="Self.FK__Score__user_id__1920BF5C" FromRole="Usuario" ToRole="Score" />
+        </EntityType>
+        <Association Name="FK__FilaEsper__jogo___1DE57479">
+          <End Role="Jogo" Type="Self.Jogo" Multiplicity="1" />
+          <End Role="FilaEspera" Type="Self.FilaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FilaEspera">
+              <PropertyRef Name="jogo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FilaEsper__user___1CF15040">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="FilaEspera" Type="Self.FilaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FilaEspera">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Partida__fila_id__20C1E124">
+          <End Role="FilaEspera" Type="Self.FilaEspera" Multiplicity="1" />
+          <End Role="Partida" Type="Self.Partida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FilaEspera">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Partida">
+              <PropertyRef Name="fila_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Score__jogo_id__1A14E395">
+          <End Role="Jogo" Type="Self.Jogo" Multiplicity="1" />
+          <End Role="Score" Type="Self.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="jogo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tabuleiro__parti__24927208">
+          <End Role="Partida" Type="Self.Partida" Multiplicity="1" />
+          <End Role="Tabuleiro" Type="Self.Tabuleiro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tabuleiro">
+              <PropertyRef Name="partida_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Score__user_id__1920BF5C">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Score" Type="Self.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JogoDaVelhaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FilaEspera" EntityType="Self.FilaEspera" />
+          <EntitySet Name="Jogo" EntityType="Self.Jogo" />
+          <EntitySet Name="Partida" EntityType="Self.Partida" />
+          <EntitySet Name="Score" EntityType="Self.Score" />
+          <EntitySet Name="Tabuleiro" EntityType="Self.Tabuleiro" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__FilaEsper__jogo___1DE57479" Association="Self.FK__FilaEsper__jogo___1DE57479">
+            <End Role="Jogo" EntitySet="Jogo" />
+            <End Role="FilaEspera" EntitySet="FilaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FilaEsper__user___1CF15040" Association="Self.FK__FilaEsper__user___1CF15040">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="FilaEspera" EntitySet="FilaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Partida__fila_id__20C1E124" Association="Self.FK__Partida__fila_id__20C1E124">
+            <End Role="FilaEspera" EntitySet="FilaEspera" />
+            <End Role="Partida" EntitySet="Partida" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Score__jogo_id__1A14E395" Association="Self.FK__Score__jogo_id__1A14E395">
+            <End Role="Jogo" EntitySet="Jogo" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tabuleiro__parti__24927208" Association="Self.FK__Tabuleiro__parti__24927208">
+            <End Role="Partida" EntitySet="Partida" />
+            <End Role="Tabuleiro" EntitySet="Tabuleiro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Score__user_id__1920BF5C" Association="Self.FK__Score__user_id__1920BF5C">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JogoDaVelhaModelStoreContainer" CdmEntityContainer="JogoDaVelhaEntities">
+          <EntitySetMapping Name="FilaEspera">
+            <EntityTypeMapping TypeName="JogoDaVelhaModel.FilaEspera">
+              <MappingFragment StoreEntitySet="FilaEspera">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dataFila" ColumnName="dataFila" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="jogo_id" ColumnName="jogo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jogo">
+            <EntityTypeMapping TypeName="JogoDaVelhaModel.Jogo">
+              <MappingFragment StoreEntitySet="Jogo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partida">
+            <EntityTypeMapping TypeName="JogoDaVelhaModel.Partida">
+              <MappingFragment StoreEntitySet="Partida">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dataPartida" ColumnName="dataPartida" />
+                <ScalarProperty Name="statusPartida" ColumnName="statusPartida" />
+                <ScalarProperty Name="fila_id" ColumnName="fila_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Score">
+            <EntityTypeMapping TypeName="JogoDaVelhaModel.Score">
+              <MappingFragment StoreEntitySet="Score">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="score1" ColumnName="score" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="jogo_id" ColumnName="jogo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tabuleiro">
+            <EntityTypeMapping TypeName="JogoDaVelhaModel.Tabuleiro">
+              <MappingFragment StoreEntitySet="Tabuleiro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="casa" ColumnName="casa" />
+                <ScalarProperty Name="jogada" ColumnName="jogada" />
+                <ScalarProperty Name="partida_id" ColumnName="partida_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="JogoDaVelhaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
