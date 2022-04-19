@@ -1,0 +1,33 @@
+create table Usuario(
+id int not null identity(1,1) primary key, 
+nome varchar(50),
+login varchar(50),
+senha varchar(10));
+
+create table Jogo(
+id int not null identity(1,1) primary key,
+descricao varchar(30));
+
+create table Score(
+id int not null identity(1,1) primary key,
+score int,
+user_id int not null foreign key references Usuario(id),
+jogo_id int not null foreign key references Jogo(id));
+
+create table FilaEspera(
+id int not null identity(1,1) primary key,
+dataFila Timestamp,
+user_id int not null foreign key references Usuario(id),
+jogo_id int not null foreign key references Jogo(id));
+
+create table Partida(
+id int not null identity(1,1) primary key,
+dataPartida Timestamp,
+statusPartida bit,
+fila_id int not null foreign key references FilaEspera(id));
+
+create table Tabuleiro(
+id int not null identity(1,1) primary key,
+casa int,
+jogada varchar(4) not null check(jogada in ('void' ,'X', 'O')),
+partida_id int not null foreign key references Partida(id));
