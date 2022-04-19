@@ -16,7 +16,7 @@ namespace JogoDaVelha
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JogoSimples());
+            Application.Run(new EscolherCor());
         }
     }
 }

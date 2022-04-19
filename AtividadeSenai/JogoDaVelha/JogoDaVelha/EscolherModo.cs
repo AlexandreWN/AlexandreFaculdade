@@ -26,7 +26,12 @@ namespace JogoDaVelha
         {
             JogoSimples novo = new JogoSimples();
             novo.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void bt_login_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

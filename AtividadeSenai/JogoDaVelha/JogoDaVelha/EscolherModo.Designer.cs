@@ -61,8 +61,9 @@
             this.bt_login.Name = "bt_login";
             this.bt_login.Size = new System.Drawing.Size(128, 32);
             this.bt_login.TabIndex = 7;
-            this.bt_login.Text = "Online P Vs P";
+            this.bt_login.Text = "P Vs Pc";
             this.bt_login.UseVisualStyleBackColor = false;
+            this.bt_login.Click += new System.EventHandler(this.bt_login_Click);
             // 
             // button1
             // 
@@ -120,7 +121,7 @@
             this.bt_offSimples.Name = "bt_offSimples";
             this.bt_offSimples.Size = new System.Drawing.Size(128, 32);
             this.bt_offSimples.TabIndex = 14;
-            this.bt_offSimples.Text = "Offline P Vs P";
+            this.bt_offSimples.Text = "P Vs P";
             this.bt_offSimples.UseVisualStyleBackColor = false;
             this.bt_offSimples.Click += new System.EventHandler(this.bt_offSimples_Click);
             // 

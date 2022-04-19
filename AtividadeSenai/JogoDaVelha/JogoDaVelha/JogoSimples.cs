@@ -16,6 +16,7 @@ namespace JogoDaVelha
         int r1 = 0, g1 = 0, b1 = 0;
         int r2 = 222, g2 = 222, b2 = 222;
         int contador = 0;
+        bool confirm = true;
         string a = "";
         List<string> jog1 = new List<string>();
         List<string> jog2 = new List<string>();
@@ -74,7 +75,11 @@ namespace JogoDaVelha
 
                     if(jog1.Contains("1") && jog1.Contains("2") && jog1.Contains("3") || jog1.Contains("4") && jog1.Contains("5") && jog1.Contains("6") || jog1.Contains("7") && jog1.Contains("8") && jog1.Contains("9") || jog1.Contains("1") && jog1.Contains("4") && jog1.Contains("7") || jog1.Contains("2") && jog1.Contains("5") && jog1.Contains("8") || jog1.Contains("3") && jog1.Contains("6") && jog1.Contains("9") || jog1.Contains("1") && jog1.Contains("5") && jog1.Contains("9") || jog1.Contains("3") && jog1.Contains("5") && jog1.Contains("7"))
                     {
-                        MessageBox.Show("jogaqdor 1 venceu");
+                        MessageBox.Show("jogador 1 venceu");
+                        confirm = false;
+                        EscolherModo novo = new EscolherModo();
+                        novo.Show();
+                        this.Hide();
                     }
                 }
                 else
@@ -97,7 +102,11 @@ namespace JogoDaVelha
                     vez = 0;
                     if (jog2.Contains("1") && jog2.Contains("2") && jog2.Contains("3") || jog2.Contains("4") && jog2.Contains("5") && jog2.Contains("6") || jog2.Contains("7") && jog2.Contains("8") && jog2.Contains("9") || jog2.Contains("1") && jog2.Contains("4") && jog2.Contains("7") || jog2.Contains("2") && jog2.Contains("5") && jog2.Contains("8") || jog2.Contains("3") && jog2.Contains("6") && jog2.Contains("9") || jog2.Contains("1") && jog2.Contains("5") && jog2.Contains("9") || jog2.Contains("3") && jog2.Contains("5") && jog2.Contains("7"))
                     {
-                        MessageBox.Show("jogaqdor 2 venceu");
+                        MessageBox.Show("jogador 2 venceu");
+                        confirm = false;
+                        EscolherModo novo = new EscolherModo();
+                        novo.Show();
+                        this.Close();
                     }
                 }
                 else
@@ -105,7 +114,14 @@ namespace JogoDaVelha
                     MessageBox.Show("campo ja selecionado");
                 }
             }
-            
+            contador++;
+            if (contador > 8 && confirm == true)
+            {
+                MessageBox.Show("Deu velha");
+                EscolherModo novo = new EscolherModo();
+                novo.Show();
+                this.Close();
+            }
         }
     }
 }

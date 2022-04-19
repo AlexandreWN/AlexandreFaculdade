@@ -63,15 +63,15 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(321, 286);
+            this.pictureBox1.Location = new System.Drawing.Point(77, 211);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(90, 30);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // trackBar2
             // 
-            this.trackBar2.Location = new System.Drawing.Point(77, 133);
+            this.trackBar2.Location = new System.Drawing.Point(77, 109);
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(580, 45);
             this.trackBar2.TabIndex = 7;
@@ -79,7 +79,7 @@
             // 
             // trackBar3
             // 
-            this.trackBar3.Location = new System.Drawing.Point(77, 201);
+            this.trackBar3.Location = new System.Drawing.Point(77, 160);
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(580, 45);
             this.trackBar3.TabIndex = 8;
