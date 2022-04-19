@@ -12,3 +12,17 @@ C:\Users\alexa\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDa
 C:\Users\alexa\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.csproj.CoreCompileInputs.cache
 C:\Users\alexa\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.exe
 C:\Users\alexa\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.pdb
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\bin\x86\Debug\JogoDaVelha.exe.config
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\bin\x86\Debug\JogoDaVelha.exe
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\bin\x86\Debug\JogoDaVelha.pdb
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.csproj.AssemblyReference.cache
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.csproj.SuggestedBindingRedirects.cache
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.EscolherCor.resources
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.EscolherModo.resources
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.Form1.resources
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.JogoSimples.resources
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.Properties.Resources.resources
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.csproj.GenerateResource.cache
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.exe
+C:\Users\Aluno\Source\Repos\AlexandreFaculdade\AtividadeSenai\JogoDaVelha\JogoDaVelha\obj\x86\Debug\JogoDaVelha.pdb

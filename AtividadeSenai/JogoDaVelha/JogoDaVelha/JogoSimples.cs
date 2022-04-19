@@ -85,6 +85,7 @@ namespace JogoDaVelha
                 else
                 {
                     MessageBox.Show("campo ja selecionado");
+                    contador--;
                 }
             }
             else
@@ -112,6 +113,7 @@ namespace JogoDaVelha
                 else
                 {
                     MessageBox.Show("campo ja selecionado");
+                    contador--;
                 }
             }
             contador++;
