@@ -1,0 +1,141 @@
+//DESAFIO 01
+
+import React, {Component} from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Slider from '@react-native-community/slider';
+import { deflate } from 'zlib';
+
+class App extends Component{
+  render(){
+    return(
+      <View style={estilos.area}>
+        <Text style = {estilos.titulo}>DESAFIO 01</Text>
+        <Text style = {estilos.subtitulo}>Component Slider</Text>
+        <Slider style = {estilos.slider} step={1} minimumValue={0} maximumValue={100}></Slider>
+        <Slider style = {estilos.slider2} step={10} minimumValue={0} maximumValue={100} minimumTrackTintColor="white" maximumTrackTintColor="black"></Slider>
+      </View>
+    );
+  }
+}
+
+export default App;
+
+const estilos = StyleSheet.create({
+  area:{
+    flex: 1,
+    backgroundColor: 'white',
+    alignItens: 'center',
+    justifyContent: 'center',
+  },
+  titulo: {
+    fontSize:20,
+    fontStyle: 'bold',
+    color: 'red'
+  },
+  subtitulo: {
+    fontSize:20,
+    fontStyle: 'italic',
+    color: 'darkblue'
+  },
+  slider:{
+    width: '75%',
+    marginTop:30
+  },
+  slider2:{
+    width: '75%',
+    marginTop:30,
+  }
+});
+
+
+
+
+
+
+
+
+DESAFIO 02
+
+import React, {Component} from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Slider from '@react-native-community/slider';
+
+class App extends Component{
+  
+  constructor(props){
+    super(props);
+    this.state={
+      indicador1: 0,
+      indicador2: 0,
+      cor: '#fff'
+    };
+    this.usandoSlider1 = this.usandoSlider1.bind(this);
+    this.usandoSlider2 = this.usandoSlider2.bind(this);
+  }
+  usandoSlider1(index){
+    this.setState({
+      indicador1: index
+    });
+  };
+  usandoSlider2(index){
+    var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    this.setState({
+      indicador2: index,
+      cor: randomColor
+    });
+  };
+  render(){
+    return(
+      <View style={[estilos.area, {backgroundColor : this.state.cor}]}>
+        <Text style = {estilos.titulo}>DESAFIO 02</Text>
+        <Text style = {estilos.subtitulo}>Component Slider</Text>
+        <View style ={{width: '75%', flexDirection: 'row'}}>
+          <Slider style = {estilos.slider} step={1} 
+            minimumValue={0} 
+            maximumValue={100}
+            onValueChange={this.usandoSlider1}>
+          </Slider>
+          <Text>{this.state.indicador1}</Text>
+        </View>
+        <View style ={{width: '75%', flexDirection: 'row'}}>
+          <Slider style = {estilos.slider2} step={10} 
+            minimumValue={0}
+            maximumValue={100} 
+            minimumTrackTintColor="white"
+            maximumTrackTintColor="black" 
+            onValueChange={this.usandoSlider2}></Slider>
+          <Text>{this.state.indicador2}</Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+export default App;
+
+const estilos = StyleSheet.create({
+  area:{
+    flex: 1,
+    alignItens: 'center',
+    justifyContent: 'center',
+  },
+  titulo: {
+    fontSize:30,
+    fontStyle: 'bold',
+    color: 'red'
+  },
+  subtitulo: {
+    fontSize:20,
+    fontStyle: 'italic',
+    color: 'darkblue'
+  },
+  slider:{
+    width: '75%',
+    marginTop:30
+  },
+  slider2:{
+    width: '75%',
+    marginTop:30,
+  }
+});
+
