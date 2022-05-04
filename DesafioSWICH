@@ -1,0 +1,144 @@
+import React, {Component} from 'react';
+import { StyleSheet, Text, View, Switch } from 'react-native';
+
+class App extends Component{
+  
+  constructor(props){
+    super(props);
+    this.state={
+      status1: false,
+      status2: false,
+      cor_fundo: 'white',
+      fonteProf: 'normal',
+      fontEstudante: 'bold'
+    };
+    this.trocaStatus1 = this.trocaStatus1.bind(this);
+    this.trocaStatus2 = this.trocaStatus2.bind(this);
+  }
+  trocaStatus1(novoStatus){
+    let cor;
+    if(novoStatus){
+      cor = 'yellow';
+    }else{
+      cor = 'white';
+    }
+    alert('a cr de fundo vai mudar para : ' + cor);
+    this.setState({
+      status1 : novoStatus,
+      cor_fundo : cor
+    });
+  };
+  trocaStatus2(novoStatus){
+    let fonteP, fonteE;
+    if(novoStatus){
+      fonteP = 'bold';
+      fonteE = 'normal';
+      alert('a opção PROFESSOR vai ficar em negrito');
+    }else{
+      fonteE = 'bold';
+      fonteP = 'normal';
+      alert('a opção ESTUDANTE vai ficar em negrito');
+    }
+    this.setState({
+      status2 : novoStatus,
+      fontEstudante : fonteE,
+      fonteProf: fonteP
+    });
+  };
+  usandoSlider2(index){
+    var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    this.setState({
+      indicador2: index,
+      cor: randomColor
+    });
+  };
+  render(){
+    return(
+      <View style={[estilos.area, {backgroundColor : this.state.cor_fundo,}]}>
+        <View style = {estilos.area_titulo}>
+          <Text style = {estilos.titulo}>DESAFIO 01</Text>
+        </View >
+        <View style = {estilos.area_subtitulo}>
+          <Text style = {estilos.subtitulo}>Exemplo de component SWITCH</Text>
+        </View>
+
+        <View style = {estilos.area_corpo}>
+          <View style = {estilos.area_swith}>
+            <Text style = {{fontSize : 20}}>Muda a cor do fundo</Text>
+            <Switch value = {this.state.status1} 
+              trackColor={{false: "#767577", true: "#81b0ff"}} 
+              thumbColor={this.state.status1 ? "#f5dd4b" : "#f00"}
+              onValueChange={this.trocaStatus1}>
+            </Switch>
+          </View>
+          
+          <Text style = {[estilos.texto, {marginLeft:20}]}>Selecionando a opção:</Text>
+          <View style = {estilos.area_swith}>
+            <Text style = {{fontSize:20, fontWeight: this.state.fontEstudante}}> Estudante </Text>
+            <Switch value={this.state.status2}
+              onValueChange={this.trocaStatus2}>
+            </Switch>
+            <Text style = {{fontSize:20, fontWeight: this.state.fonteProf}}>  Professor</Text>
+          </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+export default App;
+
+const estilos = StyleSheet.create({
+  area:{
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding:20
+  },
+  area_titulo:{
+    flex:0.15,
+    marginTop:10,
+    alignSelf:'stretch',
+    backgroundColor: 'orange',
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: 'darkorange',
+    borderWidth:4,
+  },
+  titulo: {
+    color: 'white',
+    fontSize:40,
+    fontStyle: 'bold',
+    margin:20,
+    textAlign: 'center',
+  },
+  area_subtitulo:{
+    flex:0.5,
+    marginTop:20,
+    alignItems: 'center',
+    justufyContent: 'center',
+  },  
+  area_corpo:{
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  area_swith:{
+    flexDirection:'row',
+    borderColor: 'red',
+    borderRadius: 25,
+    borderWidth:4,
+    padding:10
+  },
+  subtitulo: {
+    fontSize:25,
+    fontStyle: 'italic',
+    margin: 20,
+    textAlign: 'center'
+  },
+  texto:{
+    fontSize:20,
+    marginTop:20
+  }
+});
