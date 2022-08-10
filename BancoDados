@@ -31,3 +31,7 @@ id int not null identity(1,1) primary key,
 casa int,
 jogada varchar(4) not null check(jogada in ('void' ,'X', 'O')),
 partida_id int not null foreign key references Partida(id));
+
+
+
+a
