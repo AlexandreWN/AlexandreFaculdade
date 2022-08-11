@@ -1,0 +1,19 @@
+package LAYOUT;
+
+import java.awt.Color;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.JFrame;
+
+public class moldura extends JFrame {
+
+	moldura(int x, int y){
+		JFrame Moldura = new JFrame();
+		Moldura.setVisible(true);
+		Moldura.setSize(x,y);
+		Moldura.getContentPane().setBackground(Color.CYAN);
+		Moldura.setLocationRelativeTo(null);
+	    Moldura.add(getName(), Moldura);
+	}
+	
+}

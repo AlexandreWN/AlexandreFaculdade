@@ -1,0 +1,7 @@
+package LAYOUT;
+
+import javax.swing.JFrame;
+
+public class moldura extends JFrame {
+	
+}

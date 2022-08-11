@@ -1,0 +1,5 @@
+package LAYOUT;
+
+public class moldura extends Teste {
+	
+}

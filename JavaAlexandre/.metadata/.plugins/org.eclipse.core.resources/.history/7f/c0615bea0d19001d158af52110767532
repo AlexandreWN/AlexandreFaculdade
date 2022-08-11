@@ -1,0 +1,20 @@
+package LAYOUT;
+
+public class principal {
+	/*
+	 * Aula 01 - fundamentos de Java game 2d
+	 * 
+	 * Layout Graphic2D
+	 * Entendendo como funcionam os layouts dos paineis dentro da moldura
+	 * 
+	 * Autro: Alexandre Wilian Nikitin
+	 * Data: 10/08/2022
+	 */
+	public static void main(String[] args) {
+		System.out.println("Layouts");
+		moldura a = new moldura();
+		
+		System.out.print(a.Piranha());
+	}
+
+}

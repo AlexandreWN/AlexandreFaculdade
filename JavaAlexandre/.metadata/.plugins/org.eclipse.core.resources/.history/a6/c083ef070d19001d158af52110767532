@@ -1,0 +1,8 @@
+package LAYOUT;
+
+public class Teste {
+
+	public static String Piranha() {
+		return "Piranah";
+	}
+}

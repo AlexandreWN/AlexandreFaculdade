@@ -1,0 +1,44 @@
+package LAYOUT;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class moldura extends JFrame {
+
+	moldura(int x, int y){
+		
+		this.setSize(x,y);
+		this.getContentPane().setBackground(Color.CYAN);
+		this.setLocationRelativeTo(null);
+		this.setAlwaysOnTop(true);
+		this.setResizable(false);
+		
+		String text = "Lorem Ipsum is simply dummy text of "
+			    + "the printing and typesetting industry. Lorem Ipsum has been "
+			    + "the industry's standard dummy text ever since the 1500s, when an "
+			    + "unknown printer took a galley of type and scrambled it to make a type "
+			    + "specimen book. It has survived not only five centuries, "
+			    + "but also the leap into electronic typesetting, remaining essentially unchanged.";
+
+			    JTextArea textAreal = new JTextArea(text);
+			    textAreal.setPreferredSize(new Dimension(300, 150));
+			    textAreal.setLineWrap(true);
+			    textAreal.setWrapStyleWord(true);
+
+			    JScrollPane scrollPane = new JScrollPane(textAreal,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+			        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+			    this.add(scrollPane);
+			    this.pack();
+			    
+		
+		
+		this.setVisible(true);
+	}
+	
+}
