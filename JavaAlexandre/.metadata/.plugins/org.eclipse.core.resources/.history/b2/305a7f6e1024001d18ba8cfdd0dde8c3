@@ -27,9 +27,7 @@ public class painel extends JPanel {
 		
 		g.setColor(Color.gray);
 		g.fillArc(40, 30, 100, 100, 0, 180);
-		g.fillArc(70, 40, 100, 50, 90, -180);
-		g.fillArc(10, 40, 100, 50, 90, 180);
-		g.setColor(Color.blue);
-		g.fillArc(40, 40, 100, 100, 180, 0);
+		g.fillArc(80, 40, 100, 100, 90, -180);
+		g.fillArc(0, 40, 100, 100, 90, 180);
 	}
 }
