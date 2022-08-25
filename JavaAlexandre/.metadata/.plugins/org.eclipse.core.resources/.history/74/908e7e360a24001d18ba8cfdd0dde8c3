@@ -1,0 +1,8 @@
+package Desenhos_Geo;
+import java.awt.Color;
+
+public class moldura extends JFrame{
+  moldura(){
+	  
+  }
+}

@@ -1,0 +1,16 @@
+package Desenhos_Geo;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JPanel;
+
+public class painel extends JPanel {
+	painel(){
+		this.setPreferredSize(new Dimension(500, 500));
+		this.setBackground(Color.green);
+	}
+	
+	public void paintComponent() {
+		
+	}
+}
