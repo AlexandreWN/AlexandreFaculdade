@@ -1,7 +1,0 @@
-package Desenhos_Geo;
-
-public class moldura extends JFrame{
-  moldura(){
-	  
-  }
-}

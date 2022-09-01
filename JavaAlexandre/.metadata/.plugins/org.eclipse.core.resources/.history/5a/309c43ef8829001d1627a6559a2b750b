@@ -1,0 +1,33 @@
+package Captulo4;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class painel extends JPanel{
+	//declara os atributos do painel
+	int Largura, Altura;
+	Color CorDeFundo;
+	
+	//Identifica qual painel está sendo criado
+	painel(int Id_painel){
+		if(Id_painel == 1) {
+			//atribui valores para os atributos
+			Largura = 500; Altura = 400;
+			CorDeFundo = Color.green;
+		}else {
+			Largura = 500; Altura = 100;
+			CorDeFundo = Color.black;
+		}
+		//define as propriedades do painel
+		this.setPreferredSize(new Dimension(Largura, Altura));
+		this.setBackground(CorDeFundo);
+	}
+	
+	public void paintComponent(Graphics desenho) {
+		int X = 200, Y = 50, L = 150, A = 50;
+		desenho.fillRect(X, Y, L, A);
+	}
+}

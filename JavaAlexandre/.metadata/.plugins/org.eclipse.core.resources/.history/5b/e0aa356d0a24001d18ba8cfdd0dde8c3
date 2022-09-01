@@ -1,5 +1,0 @@
-package Desenhos_Geo;
-
-public class painel extends JPanel {
-	
-}
