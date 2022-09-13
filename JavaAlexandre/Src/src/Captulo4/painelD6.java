@@ -6,14 +6,14 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class painelD5 extends JPanel{
-	//declara os atributos do painel
+public class painelD6 extends JPanel {
+    //declara os atributos do painel
 		private int Id_P;
 		private int Largura, Altura;
 		private Color CorDeFundo;
 		
 		//Identifica qual painel est� sendo criado
-		painelD5(int Id_painel){
+		painelD6(int Id_painel){
 			this.Id_P = Id_painel;
 			if(Id_painel == 1) {
 				//atribui valores para os atributos
@@ -78,7 +78,16 @@ public class painelD5 extends JPanel{
 				int[] pontosY_T1 = {45,80,80};
 				
 				desenho.fillPolygon(pontosX_T1, pontosY_T1, 3);
-	
+
+                //Triangulo2
+				desenho.setColor(Color.yellow);
+				int[] pontosX_T2 = {35,10,60};
+				int[] pontosY_T2 = {45,10,10};
+				
+				desenho.drawPolygon(pontosX_T2, pontosY_T2, 3);
+                
+                //desenha linha
+                desenho.drawLine(0, 0, this.getWidth(), this.getHeight());
 			}
 		}
 }

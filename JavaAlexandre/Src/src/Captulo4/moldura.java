@@ -8,7 +8,7 @@ public class moldura extends JFrame{
 		this.setSize(500,500);
 		this.setAlwaysOnTop(true);
 		this.setResizable(false);
-		this.setTitle("Aula03 - CAPÍTULO04 - FORMAS GEOMETRICAS");
+		this.setTitle("Aula03 - CAPï¿½TULO04 - FORMAS GEOMETRICAS");
 		
 		//define o layout da molduta
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
@@ -16,14 +16,16 @@ public class moldura extends JFrame{
 		//centraliza a moldura na tela do computador
 		this.setLocationRelativeTo(null);
 		
-		//libera a memória depois que fecha a moldura
+		//libera a memï¿½ria depois que fecha a moldura
 		this.setExtendedState(EXIT_ON_CLOSE);
 		
 		//cria paineis
-		painelD4 P1 = new painelD4(1);
-		painelD4 P2 = new painelD4(2);
-		this.add(P1);
-		this.add(P2);
+		//painelD9 P1 = new painelD9(1);
+		//painelD9 P2 = new painelD9(2);
+		//this.add(P1);
+		//this.add(P2);
+		painelD10 P10 = new painelD10();
+		this.add(P10);
 		
 		//adapta o tamanho da moldura de acordo com os paineis adicionados
 		this.pack();
