@@ -66,5 +66,33 @@ public class painelD11 extends JPanel{
 
         desenho.setColor(new Color(92,64,51));
         desenho.fillRect(getWidth() -95, getHeight() -70, 30, 50);
+
+        //Sol
+        desenho.setColor(Color.yellow);
+        desenho.fillOval(getWidth() -60, 5, 50, 50);
+
+        //Casa
+        desenho.setColor(new Color(147,112,219));
+        desenho.fillRect(150, getHeight() -200, 300, 180);
+        
+        desenho.setColor(new Color(255,140,0));
+        int[] telhadoX = {100,300,500};
+        int[] telhadoY = {getHeight() -200,getHeight() -300,getHeight() -200};
+        desenho.fillPolygon(telhadoX, telhadoY, 3);
+
+        desenho.setColor(new Color(210,180,140));
+        desenho.fillRect(265, getHeight() -120, 70, 100);
+
+        desenho.setColor(Color.black);
+        desenho.fillOval(320, getHeight() -80, 10, 10);
+
+        desenho.setColor(new Color(200,215,215));
+        desenho.fillRect(155, getHeight() -120, 100, 70);
+        desenho.fillRect(345, getHeight() -120, 100, 70);
+
+        //Ave
+        desenho.setColor(Color.black);
+        desenho.drawArc(10, 10, 30, 20, -20, 180);
+        desenho.drawArc(40, 10, 30, 20, 20, 180);
     }
 }
