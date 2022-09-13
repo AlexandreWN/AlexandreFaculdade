@@ -24,8 +24,8 @@ public class moldura extends JFrame{
 		//painelD9 P2 = new painelD9(2);
 		//this.add(P1);
 		//this.add(P2);
-		painelD10 P10 = new painelD10();
-		this.add(P10);
+		painelD11 P11 = new painelD11();
+		this.add(P11);
 		
 		//adapta o tamanho da moldura de acordo com os paineis adicionados
 		this.pack();

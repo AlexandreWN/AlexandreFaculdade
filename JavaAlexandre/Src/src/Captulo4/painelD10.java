@@ -1,13 +1,12 @@
 package Captulo4;
 
 import javax.swing.JPanel;
-import javax.swing.JPanel;
 import java.text.Collator;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 import java.awt.*;
+
 public class painelD10 extends JPanel{
     //declara os atributos do painel
     private int Id_P;
