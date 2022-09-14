@@ -50,7 +50,59 @@ public class painelDesafioMaximo extends JPanel{
     }
 
     private void arvore(Graphics g, int x, int y){
+    	int[] pontosX = {x,x+20,x+40};
+        int[] pontosY = {y+30,y+0,y+30};
         
+        g.setColor(new Color(0,128,0));
+        g.fillPolygon(pontosX, pontosY, 3);
+        
+        g.setColor(new Color(150,75,0));
+        g.fillRect(x+15, y+30, 10, 30);
+    }
+    
+    private void carro(Graphics g, int x, int y) {
+    	int[] pontosX = {x,x+20,x+20,x+50,x+50,x};
+    	int[] pontosX1 = {x,x+30,x+30,x+50,x+50,x};
+        int[] pontosY = {y,y,y+10,y+10,y+30,y+30};
+        
+        g.setColor(new Color(70,70,70));
+        g.fillPolygon(pontosX, pontosY, 6);
+        g.setColor(Color.black);
+        g.drawPolygon(pontosX1, pontosY, 6);
+        g.fillOval(x+5, y+30, 10, 10);
+        g.fillOval(x+35, y+30, 10, 10);
+    }
+    
+    private void predio(Graphics g , int x, int y) {
+    	g.setColor(new Color(30,30,30));
+    	g.fillRect(x, y, 60, 130);
+    	
+    	g.setColor(new Color(0,0,0));
+    	g.fillRect(x+5, y+10, 10, 10);
+    	g.fillRect(x+25, y+10, 10, 10);
+    	g.fillRect(x+45, y+10, 10, 10);
+    	
+    	g.fillRect(x+5, y+30, 10, 10);
+    	g.setColor(new Color(255,255,0));
+    	g.fillRect(x+25, y+30, 10, 10);
+    	g.setColor(new Color(0,0,0));
+    	g.fillRect(x+45, y+30, 10, 10);
+    	
+    	g.setColor(new Color(255,255,0));
+    	g.fillRect(x+5, y+50, 10, 10);
+    	g.setColor(new Color(0,0,0));
+    	g.fillRect(x+25, y+50, 10, 10);
+    	g.fillRect(x+45, y+50, 10, 10);
+    	
+    	g.setColor(new Color(255,255,0));
+    	g.fillRect(x+5, y+70, 10, 10);
+    	g.fillRect(x+25, y+70, 10, 10);
+    	g.setColor(new Color(0,0,0));
+    	g.fillRect(x+45, y+70, 10, 10);
+    	
+    	g.fillRect(x+5, y+90, 10, 10);
+    	g.fillRect(x+25, y+90, 10, 10);
+    	g.fillRect(x+45, y+90, 10, 10);
     }
      
     public void paintComponent(Graphics desenho) {
@@ -62,9 +114,32 @@ public class painelDesafioMaximo extends JPanel{
         desenho.setColor(this.getBackground());
         desenho.fillRect(X, Y, L, A);
 
-        nuvem(desenho, 50, 50);
-        estrela(desenho, 0,0);
-        arvore(desenho, 100, 100);
-
+        
+        desenho.setColor(Color.green);
+        desenho.fillArc(-40,getHeight()-180,getWidth()+80,400,0,180);
+        desenho.setColor(Color.black);
+        desenho.drawArc(-40,getHeight()-180,getWidth()+80,400,0,180);
+        
+        desenho.setColor(Color.white);
+        desenho.drawLine(0, getHeight()-60, getWidth(), getHeight()-60);
+        desenho.drawLine(0, getHeight()-30, getWidth(), getHeight()-30);
+        
+        carro(desenho,30,getHeight()-80);
+        carro(desenho,250,getHeight()-75);
+        
+        arvore(desenho,370,getHeight()-140);
+        arvore(desenho,200,getHeight()-70);
+        arvore(desenho,50,getHeight()-180);
+        
+        predio(desenho,110,getHeight()-270);
+        predio(desenho,420,getHeight()-200);
+        predio(desenho,240,getHeight()-300);
+        
+        estrela(desenho,30,30);
+        estrela(desenho,300,200);
+        estrela(desenho,250,60);
+        
+        nuvem(desenho,80,60);
+        nuvem(desenho,350,100);
     }
 }
