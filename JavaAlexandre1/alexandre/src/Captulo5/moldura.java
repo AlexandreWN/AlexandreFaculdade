@@ -13,8 +13,8 @@ public class moldura extends JFrame{
 		this.setResizable(false);
 		this.setLayout(new BorderLayout());
 		
-		painelD2 P1 = new painelD2("centro");
-		painelD2 P2 = new painelD2("sul");
+		painelD7 P1 = new painelD7("centro");
+		painelD7 P2 = new painelD7("sul");
 		
 		this.add(P1, BorderLayout.CENTER);
 		this.add(P2, BorderLayout.SOUTH);
