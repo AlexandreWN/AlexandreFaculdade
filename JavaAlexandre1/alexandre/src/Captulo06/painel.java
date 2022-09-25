@@ -17,18 +17,15 @@ public class painel extends JPanel implements KeyListener{
 	//player
 	private jogador player1 = new jogador(100, 100, 50, 50, Color.black, Color.white, 2);
 	
-	//parede
-	private obstaculo parede1 = new obstaculo(300, 100, 50, 250, Color.green, Color.black, 2);
-	private obstaculo parede2 = new obstaculo(500, 0, 50, 250, Color.red, Color.black, 2);
-	private obstaculo parede3 = new obstaculo(60, 450, 300, 50, Color.pink, Color.black, 2);
-	private obstaculo parede4 = new obstaculo(580, 280, 125, 125, Color.blue, Color.black, 2);
-	
 	//array de paredes
 	private obstaculo paredes[] = new obstaculo[20];
 
-	//coloca as paredes no array
+	//prioridade
+	private int prioridadeTop = 1;
+	private int prioridadeRight = 1;
+	private int prioridadeLeft = 1;
+	private int prioridadeBottom = 1;
 
-	
 	private int posX = player1.getPosX();
 	private int posY = player1.getPosY();
 	private painel PPainel;
@@ -78,36 +75,127 @@ public class painel extends JPanel implements KeyListener{
 		int cont = 0;
 		boolean resultado = true;
 		while(paredes[cont] != null){
-			int ptoDeColisaoPlayer = player1.getPosY();
-				int ptoDeColisaoParede = paredes[cont].getPosY() + paredes[cont].getAltura();
-				System.out.println("Parede " + cont + ": " + ptoDeColisaoParede);
-				System.out.println("Player : " + ptoDeColisaoPlayer);
+			int ptoDeColisaoPlayerY = player1.getPosY();
+			int ptoDeColisaoPlayerX = player1.getPosX();
+			int ptoDeColisaoInferiorParede = paredes[cont].getPosY() + paredes[cont].getAltura();
+			int ptoDeColisaoSuperiorParede = paredes[cont].getPosY();
+			int ptoDeColisaoDireitoParede = paredes[cont].getPosX() + paredes[cont].getLargura();
+			int ptoDeColisaoEsquerdoParede = paredes[cont].getPosX();
 
-				if (player1.getPosY() >= (paredes[cont].getPosY() + paredes[cont].getAltura()))
+
+			//Colisão Superior
+			if (player1.getPosY() >= (paredes[cont].getPosY() + paredes[cont].getAltura()))
+			{
+				int ptoJ = player1.getPosX();
+				int ptoK = player1.getPosX() + player1.getLargura();
+				int ptoA = paredes[cont].getPosX();
+				int ptoB = paredes[cont].getPosX() + paredes[cont].getLargura();
+				if ((ptoJ > ptoA && ptoJ < ptoB) || (ptoK > ptoA && ptoK < ptoB))
 				{
-					int ptoJ = player1.getPosX();
-					int ptoK = player1.getPosX() + player1.getLargura();
-					int ptoA = paredes[cont].getPosX();
-					int ptoB = paredes[cont].getPosX() + paredes[cont].getLargura();
-					if ((ptoJ > ptoA && ptoJ < ptoB) || (ptoK > ptoA && ptoK < ptoB))
-					{
-						System.out.println("Em Rota De Colisão");
-						if (ptoDeColisaoParede == ptoDeColisaoPlayer)
-						{
-							System.out.println("COLISÃO SUPERIOR");
-							resultado = false;
-						}
-					}
-					else if (ptoJ == ptoA && ptoK == ptoB)
+					System.out.println("Em Rota De Colisão");
+					if (ptoDeColisaoInferiorParede == ptoDeColisaoPlayerY)
 					{
 						System.out.println("COLISÃO SUPERIOR");
-						if (ptoDeColisaoParede == ptoDeColisaoPlayer)
-						{
-							System.out.println("COLISÃO SUPERIOR");
-							resultado = false;
-						}
+						this.prioridadeTop = -1;
+						resultado = false;
 					}
 				}
+				else if (ptoJ == ptoA && ptoK == ptoB)
+				{
+					System.out.println("COLISÃO SUPERIOR");
+					if (ptoDeColisaoInferiorParede == ptoDeColisaoPlayerY)
+					{
+						System.out.println("COLISÃO SUPERIOR");
+						this.prioridadeTop = -1;
+						resultado = false;
+					}
+				}
+			}
+
+			//Colisão Infeior
+			if(player1.getPosY() + player1.getAltura() <= (paredes[cont].getPosY())){
+				int ptoJ = player1.getPosX();
+				int ptoK = player1.getPosX() + player1.getLargura();
+				int ptoA = paredes[cont].getPosX();
+				int ptoB = paredes[cont].getPosX() + paredes[cont].getLargura();
+				if ((ptoJ > ptoA && ptoJ < ptoB) || (ptoK > ptoA && ptoK < ptoB))
+				{
+					System.out.println("Em Rota De Colisão");
+					if (ptoDeColisaoSuperiorParede == ptoDeColisaoPlayerY + player1.getAltura())
+					{
+						System.out.println("COLISÃO INFERIOR");
+						this.prioridadeBottom = -1;
+						resultado = false;
+					}
+				}
+				else if (ptoJ == ptoA && ptoK == ptoB)
+				{
+					System.out.println("COLISÃO INFERIOR");
+					if (ptoDeColisaoSuperiorParede == ptoDeColisaoPlayerY + player1.getAltura())
+					{
+						System.out.println("COLISÃO INFERIOR");
+						this.prioridadeBottom = -1;
+						resultado = false;
+					}
+				}
+			}
+
+			//Colisão Direita
+			if(player1.getPosX() + player1.getLargura() >= (paredes[cont].getPosX())){
+				int ptoJ = player1.getPosY();
+				int ptoK = player1.getPosY() + player1.getAltura();
+				int ptoA = paredes[cont].getPosY();
+				int ptoB = paredes[cont].getPosY() + paredes[cont].getAltura();
+				if ((ptoJ > ptoA && ptoJ < ptoB) || (ptoK > ptoA && ptoK < ptoB))
+				{
+					System.out.println("Em Rota De Colisão");
+					if (ptoDeColisaoEsquerdoParede == ptoDeColisaoPlayerX + player1.getLargura())
+					{
+						System.out.println("COLISÃO DIREITA");
+						this.prioridadeRight = -1;
+						resultado = false;
+					}
+				}
+				else if (ptoJ == ptoA && ptoK == ptoB)
+				{
+					System.out.println("COLISÃO DIREITA");
+					if (ptoDeColisaoEsquerdoParede == ptoDeColisaoPlayerX + player1.getLargura())
+					{
+						System.out.println("COLISÃO DIREITA");
+						this.prioridadeRight = -1;
+						resultado = false;
+					}
+				}
+			}
+
+			//colisão Esqueda
+			if(player1.getPosX() <= (paredes[cont].getPosX() + paredes[cont].getLargura())){
+				int ptoJ = player1.getPosY();
+				int ptoK = player1.getPosY() + player1.getAltura();
+				int ptoA = paredes[cont].getPosY();
+				int ptoB = paredes[cont].getPosY() + paredes[cont].getAltura();
+				if ((ptoJ > ptoA && ptoJ < ptoB) || (ptoK > ptoA && ptoK < ptoB))
+				{
+					System.out.println("Em Rota De Colisão");
+					if (ptoDeColisaoDireitoParede == ptoDeColisaoPlayerX)
+					{
+						System.out.println("ENTROU AQUI AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+						System.out.println("COLISÃO SUPERIOR");
+						this.prioridadeLeft = -1;
+						resultado = false;
+					}
+				}
+				else if (ptoJ == ptoA && ptoK == ptoB)
+				{
+					System.out.println("COLISÃO SUPERIOR");
+					if (ptoDeColisaoDireitoParede == ptoDeColisaoPlayerX)
+					{
+						System.out.println("COLISÃO SUPERIOR");
+						this.prioridadeLeft = -1;
+						resultado = false;
+					}
+				}
+			}
 			cont++;
 		}
 		return resultado;
@@ -125,7 +213,7 @@ public class painel extends JPanel implements KeyListener{
 			i++;
 			this.paredes[i] = new obstaculo(500, 0, 50, 250, Color.red, Color.black, 2);
 			i++;
-			this.paredes[i] = new obstaculo(60, 450, 300, 50, Color.pink, Color.black, 2);
+			this.paredes[i] = new obstaculo(90, 450, 300, 50, Color.pink, Color.black, 2);
 			i++;
 			this.paredes[i] = new obstaculo(580, 280, 125, 125, Color.blue, Color.black, 2);
 
@@ -162,24 +250,40 @@ public class painel extends JPanel implements KeyListener{
 		switch(e.getKeyCode()){
 			case 38: //cima
 				if(player1.getPosY() != 0){
-					if(verificaColisoes() == true){
+					if(verificaColisoes() == true || prioridadeTop > 0){
 						player1.setPosY(player1.getPosY() - 5);
 					}
+					this.prioridadeBottom = 1;
+					this.prioridadeTop = 1;
 				}
 				break;
 			case 40: //baixo
 				if(player1.getPosY() < (this.getHeight() -50)){
-					player1.setPosY(player1.getPosY() + 5);
+					if(verificaColisoes() == true || prioridadeBottom > 0){
+						player1.setPosY(player1.getPosY() + 5);
+					}
+					this.prioridadeTop = 1;
+					this.prioridadeBottom = 1;
 				}
 				break;
 			case 37: //esquerda
+				
 				if((player1.getPosX() != 0)){
-					player1.setPosX(player1.getPosX() - 5);
+					if(verificaColisoes() == true || prioridadeLeft > 0){
+						player1.setPosX(player1.getPosX() - 5);
+					}
+					this.prioridadeRight = 1;
+					this.prioridadeLeft = 1;
 				}
 				break;
 			case 39: //direita
+				
 				if(player1.getPosX() < (this.getWidth() -50)){
-					player1.setPosX(player1.getPosX() + 5);
+					if(verificaColisoes() == true || prioridadeRight > 0){
+						player1.setPosX(player1.getPosX() + 5);
+					}
+					this.prioridadeLeft = 1;
+					this.prioridadeRight= 1;
 				}
 				break;
 			default:
