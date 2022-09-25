@@ -179,8 +179,7 @@ public class painel extends JPanel implements KeyListener{
 					System.out.println("Em Rota De Colisão");
 					if (ptoDeColisaoDireitoParede == ptoDeColisaoPlayerX)
 					{
-						System.out.println("ENTROU AQUI AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-						System.out.println("COLISÃO SUPERIOR");
+						System.out.println("COLISÃO ESQUERDA");
 						this.prioridadeLeft = -1;
 						resultado = false;
 					}

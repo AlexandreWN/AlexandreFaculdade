@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch main",
             "request": "launch",
+            "mainClass": "Captulo6Labirinto.main",
+            "projectName": "alexandre"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
             "mainClass": "Captulo06.main",
             "projectName": "alexandre"
         },
