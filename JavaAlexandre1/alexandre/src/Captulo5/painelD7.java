@@ -7,10 +7,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JPanel;
-
-public class painelD7 extends JPanel implements KeyListener{
+public class painelD7 extends JPanel implements KeyListener, MouseListener{
 	private String Id_P;
 	private int Player1_posX = 100, Player1_posY = 100;
 	private int Player2_posX = 100, Player2_posY = 100;
@@ -21,7 +21,7 @@ public class painelD7 extends JPanel implements KeyListener{
 				this.setPreferredSize(new Dimension(800,500));
 				this.setBackground(Color.green);
 				
-				//o método abaixo permite que o painel Central processe os eventos do teclado
+				//o mï¿½todo abaixo permite que o painel Central processe os eventos do teclado
 				this.addKeyListener(this);
 				//detrmina o foco no painel Central
 				this.setFocusable(true);
@@ -111,12 +111,42 @@ public class painelD7 extends JPanel implements KeyListener{
 				break;
 		}
 		this.repaint();
-		System.out.println("Você liberou a tecla " + e.getKeyChar());
-		System.out.println("Você liberou a tecla " + e.getKeyCode());
+		System.out.println("Vocï¿½ liberou a tecla " + e.getKeyChar());
+		System.out.println("Vocï¿½ liberou a tecla " + e.getKeyCode());
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

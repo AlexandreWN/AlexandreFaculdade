@@ -8,6 +8,48 @@
             "type": "java",
             "name": "Launch main",
             "request": "launch",
+            "mainClass": "Captulo06.main",
+            "projectName": "alexandre"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "ListenersMouse.main",
+            "projectName": "alexandre"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "Captulo5.main",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "Capitulo5.main",
+            "projectName": "Src"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "Captulo5.main",
+            "projectName": "Src"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "main",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
             "mainClass": "Captulo4.main",
             "projectName": "Src"
         },
