@@ -62,6 +62,4 @@ public class obstaculo extends Rectangle{
         g.setColor(this.corDaBorda);
         g.drawRect(this.posX, this.posY, this.largura, this.altura);
     }
-
-
 }
