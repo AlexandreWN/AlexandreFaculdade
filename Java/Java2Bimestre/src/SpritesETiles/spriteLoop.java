@@ -8,16 +8,15 @@ import javax.swing.Timer;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
-public class gameLoop extends Thread implements Runnable, AncestorListener, ActionListener{
-
-    private int fps = 75;
+public class spriteLoop extends Thread implements Runnable, AncestorListener, ActionListener{
+    private int fps = 10;
     private Timer timer;
     private long contadorFps;
     private painel cenaDoJogo;
     private escutadorTeclado escutaTecl;
 
-    gameLoop(painel p, escutadorTeclado eT){
-        System.out.println("O loop foi iniciado");
+    spriteLoop(painel p, escutadorTeclado eT){
+        System.out.println("Sprite instanciado");
         this.cenaDoJogo = p;
         this.escutaTecl = eT;
     }
@@ -39,7 +38,7 @@ public class gameLoop extends Thread implements Runnable, AncestorListener, Acti
             tempoUltimaMedidaDoLoop = tempoAtualDoLoop;
 
             if(tempoDecorrido >= 1){
-                cenaDoJogo.player.atualizaPosiicao(escutaTecl.left, escutaTecl.up, escutaTecl.right, escutaTecl.down);
+                cenaDoJogo.player.atualizaSprite(escutaTecl.left, escutaTecl.up, escutaTecl.right, escutaTecl.down);
 
                 cenaDoJogo.repaint();
 
@@ -51,7 +50,7 @@ public class gameLoop extends Thread implements Runnable, AncestorListener, Acti
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("FPS calculado: " + this.contadorFps);
+        System.out.println("Sprite calculado: " + this.contadorFps);
         this.contadorFps = 0;
     }
 

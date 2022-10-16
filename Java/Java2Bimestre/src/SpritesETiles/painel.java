@@ -21,6 +21,8 @@ public class painel extends JPanel{
 	
 	gameLoop loopDoJogo;
 
+	spriteLoop  loopDoSprite;
+
 	escutadorTeclado escutaTecl;
 	
 	painel(String Posicao){
@@ -31,7 +33,7 @@ public class painel extends JPanel{
 				this.setPreferredSize(new Dimension(800, 500));
 				this.setBackground(Color.black);
 
-				this.player = new jogador(200, 100, 50, 50);
+				this.player = new jogador(200, 100, 200, 200);
 				
 				escutaTecl = new escutadorTeclado();
 				this.addKeyListener(escutaTecl);
@@ -40,6 +42,11 @@ public class painel extends JPanel{
 				loopDoJogo = new gameLoop(this, escutaTecl);
 
 				loopDoJogo.start();
+
+				loopDoSprite = new spriteLoop(this, escutaTecl);
+
+				loopDoSprite.start();
+
 				break;
 			}
 		}
