@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "Java/SpritesETiles.main",
+            "projectName": "Java2Bimestre"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "Java/GameLoop.main",
+            "projectName": "Java2Bimestre"
+        },
+        {
+            "type": "java",
             "name": "Launch Principal",
             "request": "launch",
             "mainClass": "Captulo5Mouse.Principal",

@@ -1,57 +1,48 @@
-package GameLoop;
+package SpritesETiles;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class painel extends JPanel implements KeyListener, Runnable, ActionListener{
+public class painel extends JPanel{
 	
 	int contadorDePrints;
 	
 	private painel PPainel;
 	private String ID_P;
-	private Timer timer;
-	private Thread GameLoop;
-	private final int FPS = 60;
 	
 	private paredes parede[] = new paredes[20];
 	
-	private jogador player = new jogador(100, 100, 50, 50, Color.white, Color.red, 1);
+	jogador player;
 	
-	//prioridade
-	private int prioridadeTop = 1;
-	private int prioridadeRight = 1;
-	private int prioridadeLeft = 1;
-	private int prioridadeBottom = 1;
+	gameLoop loopDoJogo;
+
+	escutadorTeclado escutaTecl;
 	
 	painel(String Posicao){
 		this.ID_P = Posicao;
 		switch (Posicao) {
-		case "centro":
-			this.setPreferredSize(new Dimension(800, 500));
-			this.setBackground(Color.black);
-			
-			this.addKeyListener(this);
-		    this.setFocusable(true);
-		    this.GameLoop = new Thread(this);
-		    this.GameLoop.start();
-			break;
-			
-		case "sul":
-			this.setPreferredSize(new Dimension(800, 100));
-			this.setBackground(Color.green);
-			break;
+			case "centro":
+			{
+				this.setPreferredSize(new Dimension(800, 500));
+				this.setBackground(Color.black);
+
+				this.player = new jogador(200, 100, 50, 50);
+				
+				escutaTecl = new escutadorTeclado();
+				this.addKeyListener(escutaTecl);
+				this.setFocusable(true);
+
+				loopDoJogo = new gameLoop(this, escutaTecl);
+
+				loopDoJogo.start();
+				break;
+			}
 		}
-        
     }
 
 	painel(String posicao, painel PP){
@@ -64,19 +55,11 @@ public class painel extends JPanel implements KeyListener, Runnable, ActionListe
 		if(this.ID_P == "centro"){
 			g.setColor(this.getBackground());
 			g.fillRect(0, 0, getWidth(), getHeight());
-			
-			criaParedes(g);
+
 			player.desenhar(g2D);
 		}
-		else{
-			g.setColor(this.getBackground());
-			g.fillRect(0, 0, getWidth(), getHeight());
-			
-			escritaPainelSul(g, new Color(0,0,0), 25, 25, "Alexandre Wilian Nikitin",25,Font.BOLD,"Arial");
-			escritaPainelSul(g, new Color(0,0,255), 250, 60, "Data: 05/10/2022",25,Font.PLAIN,"Arial");
-		}
 	}
-	
+	/*
 	private void escritaPainelSul(Graphics g, Color cor, int x, int y, String texto, int tamanhoFonte, int style, String type) {
 		Font fonte = new Font (type, style, tamanhoFonte);
 		g.setFont(fonte);
@@ -222,87 +205,5 @@ public class painel extends JPanel implements KeyListener, Runnable, ActionListe
 		}
 		return resultado;
 	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		switch(e.getKeyCode()){
-			case 38: //cima
-				if(player.getPosY() != 0){
-					if(verificaColisoes() == true || prioridadeTop > 0){
-						player.setPosY(player.getPosY() - 5);
-					}
-					this.prioridadeBottom = 1;
-					this.prioridadeTop = 1;
-				}
-				break;
-			case 40: //baixo
-				if(player.getPosY() < (this.getHeight() -50)){
-					if(verificaColisoes() == true || prioridadeBottom > 0){
-						player.setPosY(player.getPosY() + 5);
-					}
-					this.prioridadeTop = 1;
-					this.prioridadeBottom = 1;
-				}
-				break;
-			case 37: //esquerda
-				
-				if((player.getPosX() != 0)){
-					if(verificaColisoes() == true || prioridadeLeft > 0){
-						player.setPosX(player.getPosX() - 5);
-					}
-					this.prioridadeRight = 1;
-					this.prioridadeLeft = 1;
-				}
-				break;
-			case 39: //direita
-				
-				if(player.getPosX() < (this.getWidth() -50)){
-					if(verificaColisoes() == true || prioridadeRight > 0){
-						player.setPosX(player.getPosX() + 5);
-					}
-					this.prioridadeLeft = 1;
-					this.prioridadeRight= 1;
-				}
-				break;
-			default:
-				System.out.println("Uma tecla sem função foi pressionada");
-				break;
-		}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {}
-
-	@Override
-	public void run() {
-		double frameRate = 1000/this.FPS;
-		double tempoDecorrido = 0;
-		long tempoUltimaMedidaDoLoop = System.currentTimeMillis();
-		long tempoAtualDoLoop;
-
-		this.contadorDePrints = 0;
-		this.timer = new Timer(1000, this);
-		this.timer.start();
-		
-		while(this.GameLoop.isAlive()) {
-			tempoAtualDoLoop =  System.currentTimeMillis();
-			tempoDecorrido = tempoDecorrido + (tempoAtualDoLoop -  tempoUltimaMedidaDoLoop) / frameRate;
-			tempoUltimaMedidaDoLoop = tempoAtualDoLoop;
-
-			if(tempoDecorrido >= 1){
-				this.repaint();
-				this.contadorDePrints++;
-				tempoDecorrido = 0;
-			}
-		}
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		System.out.println(this.contadorDePrints);
-		this.contadorDePrints = 0;
-	}
+	*/
 }
