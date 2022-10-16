@@ -22,7 +22,7 @@ public class jogador{
         this.altura = altura;
         this.corDeFundo = Color.white;
         
-        icon = new ImageIcon("res/player/down1.png");
+        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\down1.png");
         System.out.print(icon);
         this.imagemPlayer = icon.getImage();
     }
@@ -61,8 +61,6 @@ public class jogador{
 
     public void desenhar(Graphics2D g){
         g.setColor(this.corDeFundo);
-		g.fillRect(this.posX, this.posY, this.largura, this.altura);
-
         g.drawImage(imagemPlayer, this.posX, this.posY, this.largura, this.altura, null);
     }
 
