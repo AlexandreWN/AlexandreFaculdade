@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch main",
             "request": "launch",
+            "mainClass": "Java/JogoFinal.main",
+            "projectName": "Java2Bimestre"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
             "mainClass": "Java/SpritesETiles.main",
             "projectName": "Java2Bimestre"
         },
