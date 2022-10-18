@@ -2,77 +2,72 @@ package JogoFinal;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 
 public class escutadorTeclado implements KeyListener{
 
-    public boolean down, up, left, right, idle = true, atk, chorar;
+    public Map<Integer, Boolean> keys = new HashMap<Integer, Boolean>();
+    public boolean idle = true;
+    int count = 0;
+
+    public escutadorTeclado(){
+        for (int i = 37; i < 41; i++){
+            this.keys.put(i, false);
+        }
+        this.keys.put(67, false);
+        this.keys.put(88, false);
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch(e.getKeyCode()){
-            case 37:
-                this.left = true;
-                this.idle = false;
-                break;
-            case 38:
-                this.up = true;
-                this.idle = false;
-                break;
-            case 39:
-                this.right = true;
-                this.idle = false;
-                break;
-            case 40:
-                this.down = true;
-                this.idle = false;
-                break;
-            case 67:
-                this.atk = true;
-                this.idle = false;
-                break;
-            case 88:
-                this.chorar = true;
-                this.idle = false;
-                break;
-            default:
-                System.out.println(e.getKeyCode());
-                break;
+        if(this.keys.containsKey(e.getKeyCode())){
+            if(this.keys.get(e.getKeyCode()) == false){
+                count++;
+            }
+            this.keys.put(e.getKeyCode(), true);
+        }else{
+            count--;
+        }
+        if (this.count > 0){
+            this.idle = false;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        switch(e.getKeyCode()){
-            case 37:
-                this.left = false;
-                this.idle = true;
-                break;
-            case 38:
-                this.up = false;
-                this.idle = true;
-                break;
-            case 39:
-                this.right = false;
-                this.idle = true;
-                break;
-            case 40:
-                this.down = false;
-                this.idle = true;
-                break;
-            case 67:
-                this.atk = false;
-                this.idle = true;
-                break;
-            case 88:
-                this.chorar = false;
-                this.idle = true;
-                break;
-            default:
-                System.out.println(e.getKeyCode());
-                break;
+        if (this.keys.containsKey(e.getKeyCode())){
+            this.keys.put(e.getKeyCode(), false);
+            count--;
+        }
+        else{
+            count++;
+        }
+        if (this.count == 0){
+            this.idle = true;
         }
     }
 
     @Override
     public void keyTyped(KeyEvent arg0) {}
+
+    public boolean getLeft(){
+        return this.keys.get(37);
+    }
+    public boolean getUp(){
+        return this.keys.get(38);
+    }
+    public boolean getRight(){
+        return this.keys.get(39);
+    }
+    public boolean getDown(){
+        return this.keys.get(40);
+    }
+    public boolean getAtk(){
+        return this.keys.get(67);
+    }
+    public boolean getChorar(){
+        return this.keys.get(88);
+    }
 }

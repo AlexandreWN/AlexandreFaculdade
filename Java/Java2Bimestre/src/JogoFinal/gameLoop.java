@@ -44,7 +44,7 @@ public class gameLoop extends Thread implements Runnable, AncestorListener, Acti
             tempoUltimaMedidaDoLoop = tempoAtualDoLoop;
 
             if(tempoDecorrido >= 1){
-                cenaDoJogo.player.atualizaPosiicao(escutaTecl.left, escutaTecl.up, escutaTecl.right, escutaTecl.down);
+                cenaDoJogo.player.atualizaPosiicao(escutaTecl.getLeft(), escutaTecl.getUp(), escutaTecl.getRight(), escutaTecl.getDown());
 
                 cenaDoJogo.repaint();
 

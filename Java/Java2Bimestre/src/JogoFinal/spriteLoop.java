@@ -38,7 +38,8 @@ public class spriteLoop extends Thread implements Runnable, AncestorListener, Ac
             tempoUltimaMedidaDoLoop = tempoAtualDoLoop;
 
             if(tempoDecorrido >= 1){
-                cenaDoJogo.player.atualizaSprite(escutaTecl.left, escutaTecl.up, escutaTecl.right, escutaTecl.down, escutaTecl.idle, escutaTecl.atk, escutaTecl.chorar);
+                cenaDoJogo.player.atualizaSprite(
+                    escutaTecl.getLeft(), escutaTecl.getUp(), escutaTecl.getRight(), escutaTecl.getDown(), escutaTecl.idle, escutaTecl.getAtk(), escutaTecl.getChorar());
 
                 cenaDoJogo.repaint();
 
