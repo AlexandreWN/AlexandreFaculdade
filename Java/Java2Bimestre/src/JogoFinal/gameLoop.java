@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class gameLoop extends Thread implements Runnable, AncestorListener, ActionListener{
 
-    private int fps = 60;
+    private int fps = 75;
     private Timer timer;
     private long contadorFps;
     private painel cenaDoJogo;
@@ -44,7 +44,7 @@ public class gameLoop extends Thread implements Runnable, AncestorListener, Acti
             tempoUltimaMedidaDoLoop = tempoAtualDoLoop;
 
             if(tempoDecorrido >= 1){
-                cenaDoJogo.player.atualizaPosiicao(escutaTecl.getLeft(), escutaTecl.getUp(), escutaTecl.getRight(), escutaTecl.getDown());
+                cenaDoJogo.player.atualizaPosicao(escutaTecl.getLeft(), escutaTecl.getUp(), escutaTecl.getRight(), escutaTecl.getDown());
 
                 cenaDoJogo.repaint();
 

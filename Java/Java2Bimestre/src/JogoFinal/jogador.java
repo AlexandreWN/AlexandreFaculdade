@@ -19,14 +19,6 @@ public class jogador{
 
     BufferedImage SpriteSheet = null;
     private BufferedImage imagemPlayer;
-    private BufferedImage imagemPlayer1;
-    private BufferedImage imagemPlayer2;
-    private BufferedImage imagemPlayer3;
-    private BufferedImage imagemPlayer4;
-
-    Image imagemD1, imagemR1, imagemL1, imagemU1;
-    Image imagemD2, imagemR2, imagemL2, imagemU2;
-    Image imagemD3, imagemR3, imagemL3, imagemU3;
 
     public jogador(int posX, int posY, int largura, int altura){
         this.posX = posX;
@@ -79,27 +71,18 @@ public class jogador{
         g.drawImage(imagemPlayer, this.posX, this.posY, this.largura, this.altura, null);
     }
 
-    public void atualizaPosiicao(boolean left, boolean up, boolean right, boolean down){
+    public void atualizaPosicao(boolean left, boolean up, boolean right, boolean down){
         if(left){
-            if(this.posX >= 15){
-                this.posX = this.posX - 3;
-            }
+            this.posX = this.posX - 3;
         } 
         if(right){
-            if(this.posX  + 200 <= 1600 -3){
-                this.posX = this.posX + 3;
-            }
+            this.posX = this.posX + 3;
         } 
         if(up){
-            if(this.posY - 30 >= 3){
-                this.posY = this.posY - 3;
-            }
-            
+            this.posY = this.posY - 3;
         } 
         if(down){
-            if(this.posY  + 200 <= 850 -3){
-                this.posY = this.posY + 3;
-            }
+            this.posY = this.posY + 3;
         } 
     }
 
