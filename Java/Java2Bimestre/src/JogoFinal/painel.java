@@ -15,8 +15,6 @@ public class painel extends JPanel{
 	private painel PPainel;
 	private String ID_P;
 	
-	private paredes parede[] = new paredes[20];
-	
 	jogador player;
 	
 	gameLoop loopDoJogo;
@@ -64,41 +62,6 @@ public class painel extends JPanel{
 			g.fillRect(0, 0, getWidth(), getHeight());
 
 			player.desenhar(g2D);
-			criaParedes(g2D);
 		}
-	}
-	/*
-	private void escritaPainelSul(Graphics g, Color cor, int x, int y, String texto, int tamanhoFonte, int style, String type) {
-		Font fonte = new Font (type, style, tamanhoFonte);
-		g.setFont(fonte);
-		g.setColor(cor);
-		g.drawString(texto, x, y);
-	}
-	*/
-	
-	private void criaParedes(Graphics g) {
-		Graphics2D g2D = (Graphics2D) g;
-        //cria paredes
-        int i = 0;
-        this.parede[i] = new paredes(0, 0, 25, getHeight(), Color.blue, Color.white, 2);
-        i++;
-        this.parede[i] = new paredes(getWidth() -25, 0, 25, getHeight(), Color.blue, Color.white, 2);
-        i++;
-        this.parede[i] = new paredes(0, 0, getWidth(), 50, Color.blue, Color.white, 2);
-        i++;
-        this.parede[i] = new paredes(0, getHeight() -50, getWidth(), 50, Color.blue, Color.white, 2);
-        i++;
-        
-        int cont = 0;
-        while(parede[cont] != null){
-            parede[cont].desenhar(g2D);
-            cont++;
-        }
-        
-        g2D.setColor(Color.blue);
-        g2D.drawLine(2, 50, 23, 50);
-        g2D.drawLine(getWidth() -23, 50, getWidth() -2, 50);
-        g2D.drawLine(2, getHeight() -50, 23, getHeight() -50);
-        g2D.drawLine(getWidth() -23, getHeight() -50, getWidth() -2, getHeight() -50);
 	}
 }

@@ -5,13 +5,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class paredes extends Rectangle{
+public class mapa extends Rectangle{
 	private int posX, posY;
     private int largura, altura;
     private Color corDeFundo, corDaBorda;
     private int espessuraBorda;
 
-    public paredes(int posX, int posY, int largura, int altura, Color corDeFundo, Color corDaBorda, int espessuraBorda){
+    public mapa(int posX, int posY, int largura, int altura, Color corDeFundo, Color corDaBorda, int espessuraBorda){
         this.posX = posX;
         this.posY = posY;
         this.largura = largura;

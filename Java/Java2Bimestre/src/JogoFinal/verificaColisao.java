@@ -5,7 +5,7 @@ import java.lang.reflect.Array;
 public class verificaColisao {
 	private int prioridadeBottom = 0, prioridadeLeft= 0, prioridadeRight= 0, prioridadeTop= 0;
 
-    public boolean verificaColisoes(jogador player, paredes[]parede){
+    public boolean verificaColisoes(jogador player, mapa[]parede){
 		int cont = 0;
 		boolean resultado = true;
 		while(parede[cont] != null){

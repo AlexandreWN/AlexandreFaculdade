@@ -71,12 +71,11 @@ public class jogador{
         g.drawImage(imagemPlayer, this.posX, this.posY, this.largura, this.altura, null);
     }
 
-    public void atualizaPosiicao(boolean left, boolean up, boolean right, boolean down){
+    public void atualizaPosicao(boolean left, boolean up, boolean right, boolean down){
         if(left){
-            if(this.posX >= 15){
-                this.posX = this.posX - 3;
-            }
+            this.posX = this.posX - 3;
         } 
+<<<<<<< HEAD
         else if(right){
             if(this.posX  + 200 <= 1600 -3){
                 this.posX = this.posX + 3;
@@ -92,6 +91,16 @@ public class jogador{
             if(this.posY  + 200 <= 850 -3){
                 this.posY = this.posY + 3;
             }
+=======
+        if(right){
+            this.posX = this.posX + 3;
+        } 
+        if(up){
+            this.posY = this.posY - 3;
+        } 
+        if(down){
+            this.posY = this.posY + 3;
+>>>>>>> 810a51bbd430ce607960d58001779440342a48fe
         } 
     }
 
