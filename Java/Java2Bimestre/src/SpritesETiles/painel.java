@@ -19,6 +19,8 @@ public class painel extends JPanel{
 	
 	jogador player;
 	
+	tileMap cenario;
+	
 	gameLoop loopDoJogo;
 
 	spriteLoop  loopDoSprite;
@@ -30,10 +32,13 @@ public class painel extends JPanel{
 		switch (Posicao) {
 			case "centro":
 			{
-				this.setPreferredSize(new Dimension(800, 500));
+			    String caminho1 = "C:\\Users\\aluno\\Desktop\\AlexandreFaculdade\\Java\\Java2Bimestre\\res\\tiles\\GramaCima.png";
+				this.setPreferredSize(new Dimension(768, 480));
 				this.setBackground(Color.black);
 
-				this.player = new jogador(200, 100, 50, 50);
+				this.player = new jogador(200, 100, 48, 48);
+				
+				this.cenario = new tileMap();
 				
 				escutaTecl = new escutadorTeclado();
 				this.addKeyListener(escutaTecl);
@@ -62,7 +67,8 @@ public class painel extends JPanel{
 		if(this.ID_P == "centro"){
 			g.setColor(this.getBackground());
 			g.fillRect(0, 0, getWidth(), getHeight());
-
+			
+			this.cenario.desenhar(g2D);
 			player.desenhar(g2D);
 		}
 	}

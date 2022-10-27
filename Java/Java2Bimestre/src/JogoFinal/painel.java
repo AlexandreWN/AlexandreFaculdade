@@ -30,7 +30,7 @@ public class painel extends JPanel{
 		switch (Posicao) {
 			case "centro":
 			{
-				this.setPreferredSize(new Dimension(1600, 900));
+				this.setPreferredSize(new Dimension(800, 600));
 				this.setBackground(Color.black);
 
 				this.player = new jogador(200, 100, 200, 200);

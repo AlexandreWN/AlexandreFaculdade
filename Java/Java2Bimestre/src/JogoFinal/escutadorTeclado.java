@@ -29,10 +29,16 @@ public class escutadorTeclado implements KeyListener{
             this.keys.put(e.getKeyCode(), true);
         }else{
             count--;
+            if(count >= 1) {
+                count = 0;
+            }else if(count <= -1) {
+                count = -1;
+            }
         }
         if (this.count > 0){
             this.idle = false;
         }
+        System.out.println(count);
     }
 
     @Override

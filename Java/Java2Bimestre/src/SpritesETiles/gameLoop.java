@@ -10,7 +10,7 @@ import javax.swing.event.AncestorListener;
 
 public class gameLoop extends Thread implements Runnable, AncestorListener, ActionListener{
 
-    private int fps = 75;
+    private int fps = 60;
     private Timer timer;
     private long contadorFps;
     private painel cenaDoJogo;

@@ -19,14 +19,6 @@ public class jogador{
 
     BufferedImage SpriteSheet = null;
     private BufferedImage imagemPlayer;
-    private BufferedImage imagemPlayer1;
-    private BufferedImage imagemPlayer2;
-    private BufferedImage imagemPlayer3;
-    private BufferedImage imagemPlayer4;
-
-    Image imagemD1, imagemR1, imagemL1, imagemU1;
-    Image imagemD2, imagemR2, imagemL2, imagemU2;
-    Image imagemD3, imagemR3, imagemL3, imagemU3;
 
     public jogador(int posX, int posY, int largura, int altura){
         this.posX = posX;
@@ -85,18 +77,18 @@ public class jogador{
                 this.posX = this.posX - 3;
             }
         } 
-        if(right){
+        else if(right){
             if(this.posX  + 200 <= 1600 -3){
                 this.posX = this.posX + 3;
             }
         } 
-        if(up){
+        else if(up){
             if(this.posY - 30 >= 3){
                 this.posY = this.posY - 3;
             }
             
         } 
-        if(down){
+        else if(down){
             if(this.posY  + 200 <= 850 -3){
                 this.posY = this.posY + 3;
             }

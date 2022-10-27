@@ -25,31 +25,31 @@ public class jogador{
         this.altura = altura;
         this.corDeFundo = Color.white;
         
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\down1.png");
+        icon = new ImageIcon("res/player/down1.png");
         this.imagemPlayer = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\down1.png");
+        icon = new ImageIcon("res/player/down1.png");
         this.imagemD1 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\down2.png");
+        icon = new ImageIcon("res/player/down2.png");
         this.imagemD2 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\down3.png");
+        icon = new ImageIcon("res/player/down3.png");
         this.imagemD3 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\left1.png");
+        icon = new ImageIcon("res/player/left1.png");
         this.imagemL1 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\left2.png");
+        icon = new ImageIcon("res/player/left2.png");
         this.imagemL2 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\left3.png");
+        icon = new ImageIcon("res/player/left3.png");
         this.imagemL3 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\right1.png");
+        icon = new ImageIcon("res/player/right1.png");
         this.imagemR1 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\right2.png");
+        icon = new ImageIcon("res/player/right2.png");
         this.imagemR2 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\right3.png");
+        icon = new ImageIcon("res/player/right3.png");
         this.imagemR3 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\up1.png");
+        icon = new ImageIcon("res/player/up1.png");
         this.imagemU1 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\up2.png");
+        icon = new ImageIcon("res/player/up2.png");
         this.imagemU2 = icon.getImage();
-        icon = new ImageIcon("C:\\Users\\alexa\\OneDrive\\Área de Trabalho\\Repositorios\\AlexandreFaculdade-1\\Java\\Java2Bimestre\\res\\player\\up3.png");
+        icon = new ImageIcon("res/player/up3");
         this.imagemU3 = icon.getImage();
     }
 

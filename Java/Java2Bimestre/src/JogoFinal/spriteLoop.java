@@ -9,7 +9,7 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
 public class spriteLoop extends Thread implements Runnable, AncestorListener, ActionListener{
-    private int fps = 15;
+    private int fps = 10;
     private Timer timer;
     private long contadorFps;
     private painel cenaDoJogo;
