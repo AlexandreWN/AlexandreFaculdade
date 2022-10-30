@@ -9,9 +9,18 @@ public class tiles {
     private final int largura = 48, altura = 48;
     private int posX, posY;
     private Image imgAtual, agua, areia, bloco, gramaCima, gramaLado, tijolo;
-    
+    private boolean colisao;
+
     public tiles() {
         this.carregaImagensTiles();
+    }
+
+    public boolean getColisao(){
+        return colisao;
+    }
+
+    public  void setColisao(boolean colisao){
+        this.colisao = colisao;
     }
     
     public void desenhar(Graphics2D g, int linha, int coluna){
@@ -42,11 +51,31 @@ public class tiles {
     }
     
     public void carregapecaDaMatriz(int valorDaPeca) {
-        if(valorDaPeca == 0) this.imgAtual = this.bloco;
-        if(valorDaPeca == 1) this.imgAtual = this.areia;
-        if(valorDaPeca == 2) this.imgAtual = this.agua;
-        if(valorDaPeca == 3) this.imgAtual = this.gramaCima;
-        if(valorDaPeca == 4) this.imgAtual = this.gramaLado;
-        if(valorDaPeca == 5) this.imgAtual = this.tijolo;
+        if(valorDaPeca == 0){
+            this.imgAtual = this.bloco;
+            this.colisao = true;
+        } 
+        if(valorDaPeca == 1){
+            this.imgAtual = this.areia;
+            this.colisao = false;
+        } 
+        if(valorDaPeca == 2){
+            this.imgAtual = this.agua;
+            this.colisao = true;
+        } 
+        if(valorDaPeca == 3){
+            this.imgAtual = this.gramaCima;
+            this.colisao = false;
+        } 
+        if(valorDaPeca == 4){
+            this.imgAtual = this.gramaLado;
+            this.colisao = true;
+        } 
+        if(valorDaPeca == 5){
+            this.imgAtual = this.tijolo;
+            this.colisao = true;
+        }
+        //if (this.colisao == true) this.imgAtual = this.agua;
+        //else this.imgAtual = this.gramaCima;
     }
 }

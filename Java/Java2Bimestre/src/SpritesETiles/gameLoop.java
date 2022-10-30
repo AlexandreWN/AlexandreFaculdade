@@ -39,8 +39,22 @@ public class gameLoop extends Thread implements Runnable, AncestorListener, Acti
             tempoUltimaMedidaDoLoop = tempoAtualDoLoop;
 
             if(tempoDecorrido >= 1){
-                cenaDoJogo.player.atualizaPosiicao(escutaTecl.left, escutaTecl.up, escutaTecl.right, escutaTecl.down);
+                verificadorColisao colisao = new  verificadorColisao();
+                
+                String direcao = "cima";
 
+                if(escutaTecl.up) direcao  = "cima";
+                if(escutaTecl.down) direcao  = "baixo";
+                if(escutaTecl.right) direcao  = "direita";
+                if(escutaTecl.left) direcao  = "esquerda";
+
+                boolean bateu = colisao.verificaColisao(this.cenaDoJogo.player, this.cenaDoJogo.cenario, direcao);
+                
+                if(bateu == false){
+                    
+                    cenaDoJogo.player.atualizaPosiicao(escutaTecl.left, escutaTecl.up, escutaTecl.right, escutaTecl.down);
+                }
+                
                 cenaDoJogo.repaint();
 
                 this.contadorFps++;

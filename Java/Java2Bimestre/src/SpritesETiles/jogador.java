@@ -3,6 +3,7 @@ package SpritesETiles;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
@@ -11,6 +12,9 @@ public class jogador{
     private int largura, altura;
     private Color corDeFundo, corDaBorda;
     private int espessuraBorda;
+    static Rectangle AreaSolida;
+    static int velocidade = 3;
+
     Image imagemD1, imagemR1, imagemL1, imagemU1;
     Image imagemD2, imagemR2, imagemL2, imagemU2;
     Image imagemD3, imagemR3, imagemL3, imagemU3;
@@ -49,8 +53,10 @@ public class jogador{
         this.imagemU1 = icon.getImage();
         icon = new ImageIcon("res/player/up2.png");
         this.imagemU2 = icon.getImage();
-        icon = new ImageIcon("res/player/up3");
+        icon = new ImageIcon("res/player/up3.png");
         this.imagemU3 = icon.getImage();
+
+        defineValoresAreaSolidaJogador();
     }
 
     public int getPosX(){
@@ -86,23 +92,29 @@ public class jogador{
     }
 
     public void desenhar(Graphics2D g){
-        g.setColor(this.corDeFundo);
+        g.setColor(Color.black);
         g.drawImage(imagemPlayer, this.posX, this.posY, this.largura, this.altura, null);
     }
 
     public void atualizaPosiicao(boolean left, boolean up, boolean right, boolean down){
         if(left){
-            this.posX = this.posX - 3;
+            this.posX = this.posX - this.velocidade;
         } 
-        if(right){
-            this.posX = this.posX + 3;
+        else if(right){
+            this.posX = this.posX + this.velocidade;
         } 
-        if(up){
-            this.posY = this.posY - 3;
+        else if(up){
+            this.posY = this.posY - this.velocidade;
         } 
-        if(down){
-            this.posY = this.posY + 3;
+        else if(down){
+            this.posY = this.posY + this.velocidade;
         } 
+
+        this.AreaSolida.x = this.posX + 7;
+        this.AreaSolida.y = this.posY + this.altura / 2;
+
+        //System.out.println("coluna= " + (int)this.posX/this.largura);
+        //System.out.println("linha = " + (int)this.posY/this.altura);
     }
 
     public void atualizaSprite(boolean left, boolean up, boolean right, boolean down){
@@ -150,5 +162,13 @@ public class jogador{
                 this.imagemPlayer = this.imagemD1;
             }
         } 
+    }
+
+    private void defineValoresAreaSolidaJogador(){
+        this.AreaSolida = new Rectangle();
+        this.AreaSolida.x = this.posX + 7;
+        this.AreaSolida.y = this.posY + this.altura / 2;
+        this.AreaSolida.width = this.largura - 20;
+        this.AreaSolida.height = this.altura / 2;
     }
 }
