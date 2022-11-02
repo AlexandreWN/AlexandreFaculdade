@@ -5,6 +5,29 @@ import java.awt.Graphics2D;
 public class tileMap {
     tiles pecaDoCenario;
     int [][] cenarioValido;
+    private String cenaValida;
+
+    public String getCenaValida(){
+        return cenaValida;
+    }
+    public void setCenaValida(String cenaValida){
+        this.cenaValida = cenaValida;
+
+        switch (this.cenaValida){
+            case "BE":
+                this.cenarioValido = this.cenarioDoJogo3;
+                break;
+            case "BD":
+                this.cenarioValido = this.cenarioDoJogo4;
+                break;
+            case "TE":
+                this.cenarioValido = this.cenarioDoJogo1;
+                break;
+            case "TD":
+                this.cenarioValido = this.cenarioDoJogo2;
+                break;
+        }
+    }
     
     int[][] cenarioDoJogo1 = { 
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -56,7 +79,8 @@ public class tileMap {
         };
     
     tileMap(){
-        cenarioValido = cenarioDoJogo4;
+        cenarioValido = cenarioDoJogo1;
+        this.cenaValida = "TE";
         this.pecaDoCenario = new tiles();
     }
     public void desenhar(Graphics2D g) {

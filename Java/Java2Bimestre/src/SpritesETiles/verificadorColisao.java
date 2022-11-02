@@ -26,7 +26,13 @@ public class verificadorColisao {
 
         if(direcao == "cima"){
             if(jogador.AreaSolida.y < 0){
-                this.colisaoOcorreu = true;
+                if(cenaDoJogo.getCenaValida() == "BE"){
+                    cenaDoJogo.setCenaValida("TE");
+                }else{
+                    cenaDoJogo.setCenaValida("TD");
+                }
+                int alturaCenario =  cenaDoJogo.cenarioValido.length*48;
+                player.setPosY(alturaCenario -(int)jogador.AreaSolida.getHeight());
             }else{
                 int prox_rowTopoY = (bordaTopoY - jogador.velocidade) / 48;
                 cenaDoJogo.pecaDoCenario.carregapecaDaMatriz(cenaDoJogo.cenarioValido[prox_rowTopoY][colEsqX]);
@@ -56,7 +62,12 @@ public class verificadorColisao {
                     this.colisaoOcorreu = true;
                 }
             }else{
-                this.colisaoOcorreu = true;
+                if(cenaDoJogo.getCenaValida() == "TE"){
+                    cenaDoJogo.setCenaValida("BE");
+                }else{
+                    cenaDoJogo.setCenaValida("BD");
+                }
+                player.setPosY(-(int)jogador.AreaSolida.getHeight());
             }
         }else if(direcao == "direita"){
             int prox_colDirX = (bordaDirX + jogador.velocidade) / 48;
@@ -73,12 +84,23 @@ public class verificadorColisao {
                     this.colisaoOcorreu = true;
                 }
             }else{
-                this.colisaoOcorreu = true;
+                if(cenaDoJogo.getCenaValida() == "TE"){
+                    cenaDoJogo.setCenaValida("TD");
+                }else{
+                    cenaDoJogo.setCenaValida("BD");
+                }
+                player.setPosX(-(int)jogador.AreaSolida.getWidth());
             }
         }else if(direcao == "esquerda"){
             int prox_colEsqX = (bordaEsqX - jogador.velocidade) / 48;
             if(jogador.AreaSolida.x < 0){
-                this.colisaoOcorreu = true;
+                if(cenaDoJogo.getCenaValida() == "TD"){
+                    cenaDoJogo.setCenaValida("TE");
+                }else{
+                    cenaDoJogo.setCenaValida("BE");
+                }
+                int larguraCenario =  cenaDoJogo.cenarioValido[0].length*48;
+                player.setPosX(larguraCenario -(int)jogador.AreaSolida.getWidth());
             }else{
                 cenaDoJogo.pecaDoCenario.carregapecaDaMatriz(cenaDoJogo.cenarioValido[rowBaseY][prox_colEsqX]);
 

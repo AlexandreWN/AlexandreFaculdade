@@ -36,7 +36,7 @@ public class painel extends JPanel{
 				this.setPreferredSize(new Dimension(768, 480));
 				this.setBackground(Color.black);
 
-				this.player = new jogador(50, 50, 48, 48);
+				this.player = new jogador(50, 40, 48, 48);
 				
 				this.cenario = new tileMap();
 				
