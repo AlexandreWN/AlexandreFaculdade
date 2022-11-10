@@ -1,5 +1,7 @@
 package SpritesETiles;
 
+import java.awt.Rectangle;
+
 public class verificadorColisao {
     private int colEsqX;
     private int colDirX;
@@ -117,5 +119,13 @@ public class verificadorColisao {
         }
         
         return colisaoOcorreu;
+    }
+    
+    public boolean vericaColisao(Rectangle Sprite1, Rectangle Sprite2) {
+        boolean retorno = false;
+        if(Sprite1.intersects(Sprite2)) {
+            retorno = true;
+        }
+        return retorno;
     }
 }

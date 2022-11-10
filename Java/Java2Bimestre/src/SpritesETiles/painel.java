@@ -19,6 +19,8 @@ public class painel extends JPanel{
 	
 	jogador player;
 	
+	objetos []obj;
+	
 	tileMap cenario;
 	
 	gameLoop loopDoJogo;
@@ -37,6 +39,10 @@ public class painel extends JPanel{
 				this.setBackground(Color.black);
 
 				this.player = new jogador(50, 40, 48, 48);
+				
+				this.obj = new objetos[2];
+				this.obj[0] = new objetos(200, 40, "TE" ,"chave");
+				this.obj[1] = new objetos(300, 400, "BD" ,"moeda");
 				
 				this.cenario = new tileMap();
 				
@@ -70,6 +76,32 @@ public class painel extends JPanel{
 			
 			this.cenario.desenhar(g2D);
 			player.desenhar(g2D);
+			
+			if(this.cenario.getCenaValida() == "TE") {
+			    for(int i = 0; i < this.obj.length; i++) {
+	                if(obj[i].cenario == "TE") {
+	                    obj[i].desenhar(g2D);
+	                }       
+	            }
+			}else if(this.cenario.getCenaValida() == "BD") {
+                for(int i = 0; i < this.obj.length; i++) {
+                    if(obj[i].cenario == "BD") {
+                        obj[i].desenhar(g2D);
+                    }       
+                }
+            }else if(this.cenario.getCenaValida() == "TD") {
+                for(int i = 0; i < this.obj.length; i++) {
+                    if(obj[i].cenario == "TD") {
+                        obj[i].desenhar(g2D);
+                    }       
+                }
+            }else if(this.cenario.getCenaValida() == "BE") {
+                for(int i = 0; i < this.obj.length; i++) {
+                    if(obj[i].cenario == "BE") {
+                        obj[i].desenhar(g2D);
+                    }       
+                }
+            }
 		}
 	}
 	/*

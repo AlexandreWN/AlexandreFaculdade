@@ -14,6 +14,7 @@ public class jogador{
     private int espessuraBorda;
     static Rectangle AreaSolida;
     static int velocidade = 3;
+    inventario []inventarioJogador;
 
     Image imagemD1, imagemR1, imagemL1, imagemU1;
     Image imagemD2, imagemR2, imagemL2, imagemU2;
@@ -57,6 +58,11 @@ public class jogador{
         this.imagemU3 = icon.getImage();
 
         defineValoresAreaSolidaJogador();
+        
+        inventarioJogador = new inventario[2];
+        inventarioJogador[0] = new inventario("chave");
+        inventarioJogador[1] = new inventario("moeda");
+        
     }
 
     public int getPosX(){
@@ -170,5 +176,14 @@ public class jogador{
         this.AreaSolida.y = this.posY + this.altura / 2;
         this.AreaSolida.width = this.largura - 20;
         this.AreaSolida.height = this.altura / 2;
+    }
+    
+    public void capturaObjeto(String nome) {
+        for(int i = 0; i < inventarioJogador.length; i++) {
+            if(this.inventarioJogador[i].nomeObjeto == nome) {
+                this.inventarioJogador[i].qtdeObjeto++;
+                break;
+            }
+        }
     }
 }

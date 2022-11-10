@@ -50,7 +50,7 @@ public class spriteLoop extends Thread implements Runnable, AncestorListener, Ac
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Sprite calculado: " + this.contadorFps);
+        //System.out.println("Sprite calculado: " + this.contadorFps);
         this.contadorFps = 0;
     }
 
